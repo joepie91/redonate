@@ -138,6 +138,8 @@
 				width: 335px;
 			}
 			
+			/* Thanks, Ari! */
+			
 			.green-button 
 			{
 				margin-top:				0px;
@@ -221,6 +223,15 @@
 						you can decide to cancel your subscription at any time, without hassle, and without "oops, I forgot to cancel" 
 						moments!
 					</p>
+					
+					{%if can-donate-once == true}
+						<h3>Why use ReDonate?</h3>
+						<p>
+							Many donors wish to donate to a cause at regular intervals, but do not want to have their account charged automatically.
+							To take away the hassle of having to remember to donate every month, ReDonate was born. No need to remember a
+							donation schedule, and no automatic charges either!
+						</p>
+					{%/if}
 				</div>
 				<div class="subscribe">
 					<h3>Subscribe to a recurring donation</h3>
@@ -241,16 +252,26 @@
 					<p class="pledge">
 						<button class="green-button" id="button_subscribe">Pledge!</button>
 					</p>
+					
+					{%if can-donate-once == true}
+						<h3 class="section">One-off donation</h3>
+						<p>
+							<img src="/static/images/paypal.png">
+							<img src="/static/images/bitcoin.png" style="margin-left: 16px;">
+						</p>
+					{%/if}
 				</div>
 				<div class="clear"></div>
 				<div class="more">
 					<div class="wrapper">
-						<h3>Why use ReDonate?</h3>
-						<p>
-							Many donors wish to donate to a cause at regular intervals, but do not want to have their account charged automatically.
-							To take away the hassle of having to remember to donate every month, ReDonate was born. No need to remember a
-							donation schedule, and no automatic charges either!
-						</p>
+						{%if can-donate-once == false}
+							<h3>Why use ReDonate?</h3>
+							<p>
+								Many donors wish to donate to a cause at regular intervals, but do not want to have their account charged automatically.
+								To take away the hassle of having to remember to donate every month, ReDonate was born. No need to remember a
+								donation schedule, and no automatic charges either!
+							</p>
+						{%/if}
 						
 						<h3>Is this safe?</h3>
 						<p class="leader">
