@@ -20,6 +20,8 @@
 		"port": 	11211
 	},
 	"class_map": {
+		"user": "User",
+		"campaign": "Campaign"
 	},
 	"components": [
 		"router",

@@ -11,4 +11,16 @@
  * licensing text.
  */
 
-require("rewrite.php");
+if(!isset($_APP)) { die("Unauthorized."); }
+
+try
+{
+	$sCampaign = Campaign::FindByUrlName($router->uParameters[1]);
+	
+	$sPageTitle = "Contribute to {$sCampaign->sName}";
+	$sPageContents = NewTemplater::Render("landing", $locale->strings, array("can-donate-once" => true, "project-name" => $sCampaign->sName));
+}
+catch (NotFoundException $e)
+{
+	$sPageContents = NewTemplater::Render("404", $locale->strings, array());
+}
