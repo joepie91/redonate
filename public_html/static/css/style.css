@@ -194,3 +194,33 @@ p.pledge
 	 padding-left: 15px;
 	 padding-top: 10px;
 }
+
+.footer
+{
+	margin-top: 16px;
+	font-size: 15px;
+	margin-bottom:24px;
+	text-align: right;
+}
+
+.footer a
+{
+	color: #008600;
+	text-decoration: none;
+}
+
+.footer a:after
+{
+	content: " | ";
+	color: silver;
+}
+
+.footer a:hover
+{
+	color: black;
+}
+
+.footer a:nth-last-child(1):after
+{
+	content: "";
+}

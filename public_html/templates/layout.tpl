@@ -16,6 +16,12 @@
 			<div class="main">
 				{%?contents}
 			</div>
+			<div class="footer">
+				<a href="/">Home</a>
+				<a href="/about">About</a>
+				<a href="/sign-up">Sign up</a>
+				<a href="/login">Login</a>
+			</div>
 		</div>
 	</body>
 </html>
