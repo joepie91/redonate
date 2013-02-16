@@ -42,7 +42,7 @@
 		<input type="text" id="field_amount" value="5.00">
 		a month.
 	</p>
-	<p class="pledge">
+	<p class="pledge-button">
 		<button class="green-button" id="button_subscribe">Pledge!</button>
 	</p>
 	
