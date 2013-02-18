@@ -16,11 +16,26 @@ if(!isset($_APP)) { die("Unauthorized."); }
 try
 {
 	$sCampaign = Campaign::FindByUrlName($router->uParameters[1]);
-	
-	$sPageTitle = "Contribute to {$sCampaign->sName}";
-	$sPageContents = NewTemplater::Render("landing", $locale->strings, array("can-donate-once" => true, "project-name" => $sCampaign->sName));
 }
 catch (NotFoundException $e)
 {
 	$sPageContents = NewTemplater::Render("404", $locale->strings, array());
+	return;
 }
+
+$sLogEntry = new LogEntry(0);
+$sLogEntry->uType = LogEntry::PAGELOAD;
+$sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];
+$sLogEntry->uData = json_encode(array());
+$sLogEntry->uCampaignId = $sCampaign->sId;
+$sLogEntry->uDate = time();
+$sLogEntry->uSessionId = session_id();
+$sLogEntry->InsertIntoDatabase();
+
+$sPageTitle = "Contribute to {$sCampaign->sName}";
+$sPageContents = NewTemplater::Render("landing", $locale->strings, array(
+	"can-donate-once" => true, 
+	"project-name" => $sCampaign->sName, 
+	"urlname" => $sCampaign->sUrlName,
+	"error" => $sError
+));

@@ -28,23 +28,30 @@
 </div>
 <div class="subscribe">
 	<h3>Subscribe to a recurring donation</h3>
-	<p>
-		My e-mail address is...
-		<input type="text" id="field_email" placeholder="you@provider.com">
-	</p>
-	<p>
-		... and I'd like to pledge
-		<select id="field_currency">
-			<option value="usd">$</option>
-			<option value="eur">€</option>
-			<option value="btc">BTC</option>
-		</select>
-		<input type="text" id="field_amount" value="5.00">
-		a month.
-	</p>
-	<p class="pledge-button">
-		<button class="green-button" id="button_subscribe">Pledge!</button>
-	</p>
+	{%if isempty|error == false}
+		<p class="error">
+			{%?error}
+		</p>
+	{%/if}
+	<form method="post" action="/campaign/{%?urlname}/subscribe">
+		<p>
+			My e-mail address is...
+			{%input type="text" name="email" id="field_email" placeholder="you@provider.com"}
+		</p>
+		<p>
+			... and I'd like to pledge
+			{%select name="currency" id="field_currency"}
+				{%option value="usd" text="$"}
+				{%option value="eur" text="€"}
+				{%option value="btc" text="BTC"}
+			{%/select}
+			{%input type="text" name="amount" id="field_amount" value="5.00"}
+			a month.
+		</p>
+		<p class="pledge-button">
+			<button type="submit" class="green-button" id="button_subscribe">Pledge!</button>
+		</p>
+	</form>
 	
 	{%if can-donate-once == true}
 		<h3 class="section">One-off donation</h3>

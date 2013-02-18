@@ -170,6 +170,12 @@ body
 	font-size: 18px;
 }
 
+p.error
+{
+	font-weight: bold;
+	color: #C50003;
+}
+
 /* Form */
 
 #field_currency

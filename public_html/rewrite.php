@@ -26,6 +26,7 @@ function __autoload($class_name)
 
 $sPageTitle = "";
 $sPageContents = "";
+$sError = "";
 
 $router = new CPHPRouter();
 $router->allow_slash = true;
@@ -34,10 +35,10 @@ $router->ignore_query = true;
 $router->routes = array(
 	0 => array(
 		"^/$"						=> "modules/index.php",
-		"^/register/$"					=> "modules/register.php",
-		"^/login/$"					=> "modules/login.php",
-		"^/campaign/([a-zA-Z0-9-]+)"			=> "modules/landing.php",
-		"^/campaign/([a-zA-Z0-9-]+)/subscribe"		=> "modules/subscribe.php",
+		"^/register$"					=> "modules/register.php",
+		"^/login$"					=> "modules/login.php",
+		"^/campaign/([a-zA-Z0-9-]+)$"			=> "modules/landing.php",
+		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"		=> "modules/subscribe.php",
 	)
 );
 
