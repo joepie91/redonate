@@ -13,23 +13,7 @@
 
 if(!isset($_APP)) { die("Unauthorized."); }
 
-$sCampaigns = array();
-
-try
+if(!empty($_SESSION['user_id']))
 {
-	foreach(Campaign::CreateFromQuery("SELECT * FROM campaigns WHERE `OwnerId` = :UserId", array(":UserId" => $sCurrentUser->sId)) as $sCampaign)
-	{
-		$sCampaigns[] = array(
-			"name" => $sCampaign->sName
-		);
-	}
+	$sRouterAuthenticated = true;
 }
-catch (NotFoundException $e)
-{
-	/* pass */
-}
-
-$sPageTitle = "Dashboard";
-$sPageContents = NewTemplater::Render("dashboard", $locale->strings, array(
-	"campaigns" => $sCampaigns
-));

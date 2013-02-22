@@ -13,23 +13,4 @@
 
 if(!isset($_APP)) { die("Unauthorized."); }
 
-$sCampaigns = array();
-
-try
-{
-	foreach(Campaign::CreateFromQuery("SELECT * FROM campaigns WHERE `OwnerId` = :UserId", array(":UserId" => $sCurrentUser->sId)) as $sCampaign)
-	{
-		$sCampaigns[] = array(
-			"name" => $sCampaign->sName
-		);
-	}
-}
-catch (NotFoundException $e)
-{
-	/* pass */
-}
-
-$sPageTitle = "Dashboard";
-$sPageContents = NewTemplater::Render("dashboard", $locale->strings, array(
-	"campaigns" => $sCampaigns
-));
+redirect("/login");

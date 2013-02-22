@@ -6,4 +6,17 @@
 	{%/foreach}
 {%/if}
 
-Lorem ipsum indeed.
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Campaign type</th>
+		<th>Payment methods</th>
+	</tr>
+	{%foreach campaign in campaigns}
+		<tr>
+			<td>{%?campaign[name]}</td>
+			<td></td>
+			<td></td>
+		</tr>
+	{%/foreach}
+</table>

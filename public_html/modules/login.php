@@ -32,6 +32,7 @@ if(!empty($_POST['submit']))
 			if($sUser->VerifyPassword($_POST['password']))
 			{
 				$sUser->Authenticate();
+				flash_notice("Welcome back, {$sUser->sDisplayName}!");
 				redirect("/dashboard");
 			}
 			else
