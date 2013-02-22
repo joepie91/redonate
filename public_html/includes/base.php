@@ -17,7 +17,34 @@ $_CPHP = true;
 $_CPHP_CONFIG = "../config.json";
 require("cphp/base.php");
 
+/* Autoloader configuration */
 require_once('lib/swiftmailer/swift_required.php');
+
+function autoload_redonate($class_name) 
+{
+	global $_APP;
+	
+	$class_name = str_replace("\\", "/", strtolower($class_name));
+	
+	if(file_exists("classes/{$class_name}.php"))
+	{
+		require_once("classes/{$class_name}.php");
+	}
+}
+
+spl_autoload_register(autoload_redonate);
+
+/* Set global templater variables */
+NewTemplater::SetGlobalVariable("logged-in", !empty($_SESSION['user_id']));
+
+if(!empty($_SESSION['user_id']))
+{
+	$sCurrentUser = new User($_SESSION['user_id']);
+	
+	$sCurrentUser->SetGlobalVariables();
+	
+	NewTemplater::SetGlobalVariable("logout-key", $_SESSION['logout_key']);
+}
 
 NewTemplater::RegisterVariableHook("errors", "get_errors");
 NewTemplater::RegisterVariableHook("notices", "get_notices");
@@ -72,20 +99,6 @@ function flash_notice($message)
 {
 	$_SESSION['notices'][] = $message;
 }
-
-function autoload_redonate($class_name) 
-{
-	global $_APP;
-	
-	$class_name = str_replace("\\", "/", strtolower($class_name));
-	
-	if(file_exists("classes/{$class_name}.php"))
-	{
-		require_once("classes/{$class_name}.php");
-	}
-}
-
-spl_autoload_register(autoload_redonate);
 
 function send_mail($to, $subject, $text, $html)
 {

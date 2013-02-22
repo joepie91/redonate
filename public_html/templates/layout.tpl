@@ -19,8 +19,13 @@
 			<div class="footer">
 				<a href="/">Home</a>
 				<a href="/about">About</a>
-				<a href="/sign-up">Sign up</a>
-				<a href="/login">Login</a>
+				{%if logged-in == false}
+					<a href="/sign-up">Sign up</a>
+					<a href="/login">Login</a>
+				{%else}
+					<a href="/dashboard">Dashboard</a>
+					<a href="/logout/{%?logout-key}">Logout</a>
+				{%/if}
 			</div>
 		</div>
 	</body>
