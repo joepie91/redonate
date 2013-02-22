@@ -81,7 +81,16 @@ $router->routes = array(
 	)
 );
 
-$router->RouteRequest();
+try
+{
+	$router->RouteRequest();
+}
+catch (RouterException $e)
+{
+	http_status_code(404);
+	$sPageTitle = "Page not found";
+	$sPageContents = NewTemplater::Render("404", $locale->strings, array());
+}
 
 echo(NewTemplater::Render("layout", $locale->strings, array("contents" => $sPageContents, "title" => $sPageTitle, 
 	"padded" => (isset($router->uVariables['padded']) ? $router->uVariables['padded'] : true))));

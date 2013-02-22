@@ -19,6 +19,7 @@ try
 }
 catch (NotFoundException $e)
 {
+	http_status_code(404);
 	$sPageContents = NewTemplater::Render("404", $locale->strings, array());
 	return;
 }
