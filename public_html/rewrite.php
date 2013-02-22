@@ -31,8 +31,8 @@ $router->routes = array(
 		"^/sign-up$"					=> "modules/signup.php",
 		"^/login$"					=> "modules/login.php",
 		"^/logout/([a-zA-Z0-9]+)$"			=> "modules/logout.php",
-		"^/confirm/(.+)/([a-zA-Z0-9]+)"			=> "modules/confirm.php",
-		"^/dashboard"					=> "modules/dashboard.php",
+		"^/confirm/(.+)/([a-zA-Z0-9]+)$"			=> "modules/confirm.php",
+		"^/dashboard$"					=> "modules/dashboard.php",
 		"^/campaign/([a-zA-Z0-9-]+)$"			=> "modules/landing.php",
 		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"		=> "modules/subscribe.php"
 	)
