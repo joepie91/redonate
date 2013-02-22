@@ -13,7 +13,7 @@
 					Re<span class="highlight">Donate</span>
 				</h1>
 			</div>
-			<div class="main">
+			<div class="main {%if padded == false}no-padding{%/if}">
 				{%?contents}
 			</div>
 			<div class="footer">

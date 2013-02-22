@@ -16,6 +16,15 @@ body
 	margin: 0px auto;
 }
 
+pre.debug
+{
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
 /**************************************
  *             CLEARFIX               *
  **************************************/
@@ -65,6 +74,11 @@ body
 	color: #3B4A28;
 }
 
+.main h2.spaced
+{
+	margin-bottom: 24px;
+}
+
 /**************************************
  *               FOOTER               *
  **************************************/
@@ -97,6 +111,106 @@ body
 .footer a:nth-last-child(1):after
 {
 	content: "";
+}
+
+.intro
+{
+	background-color: #F5F5F5;
+	padding: 14px -18px;
+	text-align: center;
+}
+
+.col1, .col2
+{
+	width: 46%;
+	line-height: 140%;
+}
+
+.col1
+{
+	font-size: 18px;
+	float: left;
+	margin-left: 8px;
+	text-align: justify;
+}
+
+.col2
+{
+	font-size: 17px;
+	float: right;
+	margin-right: 16px;
+}
+
+/**************************************
+ *               FORMS                *
+ **************************************/
+
+.formfield
+{
+	margin: 6px 0px;
+}
+
+.formfield.next-similar
+{
+	margin-bottom: 6px;
+}
+
+.formfield.previous-similar
+{
+	margin-top: 6px;
+}
+
+.formfield label, .formfield input
+{
+	float: left;
+}
+
+.formfield input
+{
+	font-size: 17px;
+	padding: 4px;
+	width: 30%;
+	border: 1px solid #6CA825;
+	border-radius: 1px;
+	background-color: #F4FDE4;
+}
+
+.formfield label
+{
+	width: 18%;
+	font-size: 18px;
+	padding-top: 7px;
+	margin-right: 12px;
+	font-weight: bold;
+}
+
+.formfield.submit
+{
+	padding-left: 20%;
+	margin-top: 24px;
+}
+
+form .note
+{
+	clear: both;
+	font-size: 14px;
+	margin-left: 20%;
+	padding-top: 3px;
+}
+
+form .note:before
+{
+	content: "↳";
+	margin-right: 5px;
+}
+
+.errors
+{
+	color: #2F0003;
+	margin-bottom: 36px;
+	padding: 12px;
+	border: 1px solid #6F0008;
+	background-color: #FFF7F8;
 }
 
 /**************************************
@@ -263,4 +377,15 @@ p.pledge-button
 	-moz-filter:				grayscale(100%);
 	-ms-filter:				grayscale(100%);
 	filter:					grayscale(100%); 
+}
+
+
+.no-padding
+{
+	padding: 0px;
+}
+
+.padding
+{
+	padding: 16px 20px;
 }

@@ -81,4 +81,17 @@ $sSubscription->uConfirmed = False;
 $sSubscription->uCampaignId = $sCampaign->sId;
 $sSubscription->InsertIntoDatabase();
 
+send_mail($_POST['email'], "Please confirm your ReDonate pledge.", 
+	NewTemplater::Render("email/confirm.txt", $locale->strings, array(
+		"project-name" => $sCampaign->sName, 
+		"confirmation-url" => "http://redonate.cryto.net/confirm/{$sSubscription->sEmailAddress}/{$sSubscription->sConfirmationKey}/",
+		"amount" => "$5.00")),
+	NewTemplater::Render("email/layout.html", $locale->strings, array(
+		"contents" => NewTemplater::Render("email/confirm.html", $locale->strings, array(
+			"project-name" => $sCampaign->sName, 
+			"confirmation-url" => "http://redonate.cryto.net/confirm/{$sSubscription->sEmailAddress}/{$sSubscription->sConfirmationKey}/",
+			"amount" => "$5.00"))
+	))
+);
+
 $sPageContents = NewTemplater::Render("subscription/success", $locale->strings, array());
