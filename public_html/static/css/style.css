@@ -145,6 +145,17 @@ pre.debug
  *               FORMS                *
  **************************************/
 
+.formwrapper
+{
+	width: 485px;
+	margin: 0px auto;
+}
+
+.formwrapper.narrow
+{
+	width: 432px;
+}
+
 .formfield
 {
 	margin: 6px 0px;
@@ -169,7 +180,7 @@ pre.debug
 {
 	font-size: 17px;
 	padding: 4px;
-	width: 30%;
+	width: 270px;
 	border: 1px solid #6CA825;
 	border-radius: 1px;
 	background-color: #F4FDE4;
@@ -177,24 +188,34 @@ pre.debug
 
 .formfield label
 {
-	width: 18%;
+	width: 170px;
 	font-size: 18px;
 	padding-top: 7px;
 	margin-right: 12px;
 	font-weight: bold;
 }
 
+form.narrow .formfield label
+{
+	width: 130px;
+}
+
 .formfield.submit
 {
-	padding-left: 20%;
+	padding-left: 182px;
 	margin-top: 24px;
+}
+
+form.narrow .formfield.submit
+{
+	padding-left: 142px;
 }
 
 form .note
 {
 	clear: both;
 	font-size: 14px;
-	margin-left: 20%;
+	margin-left: 182px;
 	padding-top: 3px;
 }
 
@@ -204,10 +225,54 @@ form .note:before
 	margin-right: 5px;
 }
 
+form button
+{
+	margin-top:				0px;
+	background:				#61AF12;
+	border-top:				1px solid #529d26;
+	border-right:				1px solid #2c5615;
+	border-bottom:				1px solid #1d390e;
+	border-left:				1px solid #2c5615;
+	border-radius:				4px;
+	box-shadow:				inset 0 1px 10px 1px #6CDD28,
+						0px 1px 0 #2c5713,
+						0 2px 0px #305e14,
+						0 3px 2px 1px #111111;
+	color:					#fff;
+	font:					bold 17px/1 "helvetica neue",
+						helvetica,
+						arial,
+						sans-serif;
+	margin-bottom:				15px;
+	padding:				10px 19px 12px 19px;
+	text-align:				center;
+	text-shadow:				0px -1px 1px #1e2d4d;
+	-webkit-background-clip:		padding-box;
+}
+
+form button:hover 
+{
+	box-shadow: 				inset 0 0px 20px 1px #75DB38,
+						0px 1px 0 #324d1d,
+						0 2px 0px #37531f,
+						0 3px 2px 1px #111111;
+	cursor:					pointer; 
+}
+
+form button:active 
+{
+	box-shadow:				inset 0 1px 10px 1px #85BC59,
+						0 1px 0 #203213,
+						0 2px 0 #223413,
+						0 3px 3px 0 #111111;
+	margin-top:				2px;
+	margin-bottom:				13px; 
+}
+
 .errors
 {
 	color: #2F0003;
-	margin-bottom: 36px;
+	margin-bottom: 30px;
 	padding: 12px;
 	border: 1px solid #6F0008;
 	background-color: #FFF7F8;
