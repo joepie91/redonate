@@ -73,8 +73,10 @@ if(!empty($_POST['submit']))
 		);
 		
 		$sPageContents = NewTemplater::Render("signup/success", $locale->strings, array());
+		$sPageTitle = "Thanks for signing up!";
 		return;
 	}
 }
 
 $sPageContents = NewTemplater::Render("signup/form", $locale->strings, array('errors' => $sErrors));
+$sPageTitle = "Sign up";

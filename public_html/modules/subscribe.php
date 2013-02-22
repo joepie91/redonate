@@ -95,3 +95,4 @@ send_mail($_POST['email'], "Please confirm your ReDonate pledge.",
 );
 
 $sPageContents = NewTemplater::Render("subscription/success", $locale->strings, array());
+$sPageTitle = "Thanks for your pledge!";

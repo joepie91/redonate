@@ -49,3 +49,4 @@ if(!empty($_POST['submit']))
 }
 
 $sPageContents = NewTemplater::Render("login/form", $locale->strings, array('error' => $sError));
+$sPageTitle = "Login";
