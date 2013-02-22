@@ -28,10 +28,12 @@
 </div>
 <div class="subscribe">
 	<h3>Subscribe to a recurring donation</h3>
-	{%if isempty|error == false}
-		<p class="error">
-			{%?error}
-		</p>
+	{%if isempty|errors == false}
+		{%foreach error in errors}
+			<p class="error">
+				{%?error}
+			</p>
+		{%/foreach}
 	{%/if}
 	<form method="post" action="/campaign/{%?urlname}/subscribe">
 		<p>

@@ -37,6 +37,5 @@ $sPageTitle = "Contribute to {$sCampaign->sName}";
 $sPageContents = NewTemplater::Render("landing", $locale->strings, array(
 	"can-donate-once" => true, 
 	"project-name" => $sCampaign->sName, 
-	"urlname" => $sCampaign->sUrlName,
-	"error" => $sError
+	"urlname" => $sCampaign->sUrlName
 ));

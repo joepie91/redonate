@@ -269,6 +269,10 @@ form button:active
 	margin-bottom:				13px; 
 }
 
+/**************************************
+ *            NOTIFICATIONS           *
+ **************************************/
+
 .errors
 {
 	color: #2F0003;
@@ -276,6 +280,15 @@ form button:active
 	padding: 12px;
 	border: 1px solid #6F0008;
 	background-color: #FFF7F8;
+}
+
+.notices
+{
+	color: #002F03;
+	margin-bottom: 30px;
+	padding: 12px;
+	border: 1px solid #116F00;
+	background-color: #F8FFF7;
 }
 
 /**************************************

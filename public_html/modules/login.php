@@ -13,17 +13,15 @@
 
 if(!isset($_APP)) { die("Unauthorized."); }
 
-$sError = "";
-
 if(!empty($_POST['submit']))
 {
 	if(empty($_POST['username']))
 	{
-		$sError = "You did not enter a username.";
+		flash_error("You did not enter a username.");
 	}
 	elseif(empty($_POST['password']))
 	{
-		$sError = "You did not enter a password.";
+		flash_error("You did not enter a password.");
 	}
 	else
 	{
@@ -38,15 +36,15 @@ if(!empty($_POST['submit']))
 			}
 			else
 			{
-				$sError = "The password you entered is incorrect. Did you <a href=\"/forgot-password\">forget your password</a>?";
+				flash_error("The password you entered is incorrect. Did you <a href=\"/forgot-password\">forget your password</a>?");
 			}
 		}
 		catch (NotFoundException $e)
 		{
-			$sError = "That username does not exist.";
+			flash_error("That username does not exist.");
 		}
 	}
 }
 
-$sPageContents = NewTemplater::Render("login/form", $locale->strings, array('error' => $sError));
+$sPageContents = NewTemplater::Render("login/form", $locale->strings);
 $sPageTitle = "Login";

@@ -13,43 +13,41 @@
 
 if(!isset($_APP)) { die("Unauthorized."); }
 
-$sErrors = array();
-
 if(!empty($_POST['submit']))
 {	
 	if(empty($_POST['username']) || !preg_match("/^[a-zA-Z0-9-.]+$/", $_POST['username']))
 	{
-		$sErrors[] = "You did not enter a valid username. Your username can only contain a-z, A-Z, 0-9, dots, and dashes.";
+		flash_error("You did not enter a valid username. Your username can only contain a-z, A-Z, 0-9, dots, and dashes.");
 	}
 	elseif(User::CheckIfUsernameExists($_POST['username']) || User::CheckIfDisplayNameExists($_POST['username']))
 	{
-		$sErrors[] = "The username you entered is already in use. Please pick a different username.";
+		flash_error("The username you entered is already in use. Please pick a different username.");
 	}
 	
 	if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
 	{
-		$sErrors[] = "You did not enter a valid e-mail address.";
+		flash_error("You did not enter a valid e-mail address.");
 	}
 	elseif(User::CheckIfEmailExists($_POST['email']))
 	{
-		$sErrors[] = "The e-mail address you entered is already in use. Did you <a href=\"/forgot-password\">forget your password</a>?";
+		flash_error("The e-mail address you entered is already in use. Did you <a href=\"/forgot-password\">forget your password</a>?");
 	}
 	
 	if(empty($_POST['password']) || strlen($_POST['password']) < 8)
 	{
-		$sErrors[] = "You did not enter a valid password. Your password has to be at least 8 characters.";
+		flash_error("You did not enter a valid password. Your password has to be at least 8 characters.");
 	}
 	elseif(empty($_POST['password2']) || $_POST['password'] != $_POST['password2'])
 	{
-		$sErrors[] = "The passwords you entered did not match.";
+		flash_error("The passwords you entered did not match.");
 	}
 	
 	if(!empty($_POST['displayname']) && User::CheckIfDisplayNameExists($_POST['displayname']))
 	{
-		$sErrors[] = "The (display) name you entered is already in use. Please pick a different name. You can also just use your nickname!";
+		flash_error("The (display) name you entered is already in use. Please pick a different name. You can also just use your nickname!");
 	}
 	
-	if(empty($sErrors))
+	if(count(get_errors(false)) == 0)
 	{
 		$sUser = new User(0);
 		$sUser->uUsername = $_POST['username'];
@@ -78,5 +76,5 @@ if(!empty($_POST['submit']))
 	}
 }
 
-$sPageContents = NewTemplater::Render("signup/form", $locale->strings, array('errors' => $sErrors));
+$sPageContents = NewTemplater::Render("signup/form", $locale->strings, array());
 $sPageTitle = "Sign up";

@@ -1,10 +1,12 @@
 <div class="formwrapper narrow">
 	<h2 class="spaced">Login to your account</h2>
 
-	{%if isempty|error == false}
-		<div class="errors">
-			{%?error}
-		</div>
+	{%if isempty|errors == false}
+		{%foreach error in errors}
+			<div class="errors">
+				{%?error}
+			</div>
+		{%/foreach}
 	{%/if}
 
 	<form method="post" action="/login" class="narrow">

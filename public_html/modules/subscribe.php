@@ -25,21 +25,21 @@ catch (NotFoundException $e)
 
 if(empty($_POST['email']) || User::CheckIfEmailValid($_POST['email']) == false)
 {
-	$sError = "Please enter a valid e-mail address.";
+	flash_error("Please enter a valid e-mail address.");
 	require("modules/landing.php");
 	return;
 }
 
 if(empty($_POST['currency']))
 {
-	$sError = "Please pick a valid currency.";
+	flash_error("Please pick a valid currency.");
 	require("modules/landing.php");
 	return;
 }
 
 if(empty($_POST['amount']) || preg_match("([0-9]*[.,][0-9]+|[0-9]+)", $_POST['amount']) == false)
 {
-	$sError = "Please enter a valid amount.";
+	flash_error("Please enter a valid amount.");
 	require("modules/landing.php");
 	return;
 }
