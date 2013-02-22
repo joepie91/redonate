@@ -46,5 +46,5 @@ if(!empty($_POST['submit']))
 	}
 }
 
-$sPageContents = NewTemplater::Render("login/form", $locale->strings);
+$sPageContents = NewTemplater::Render("login/form", $locale->strings, array());
 $sPageTitle = "Login";
