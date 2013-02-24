@@ -24,6 +24,8 @@ catch (NotFoundException $e)
 	return;
 }
 
+$sCampaign->UpdateStatistics();
+
 $sLogEntry = new LogEntry(0);
 $sLogEntry->uType = LogEntry::PAGELOAD;
 $sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];

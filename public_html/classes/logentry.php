@@ -39,4 +39,6 @@ class LogEntry extends CPHPDatabaseRecordClass
 	
 	const PAGELOAD = 1;
 	const SUBSCRIPTION = 2;
+	const DONATION_ASKED = 3;
+	const DONATION_MADE = 4;
 }

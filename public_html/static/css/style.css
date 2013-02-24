@@ -270,6 +270,93 @@ form button:active
 }
 
 /**************************************
+ *               TABLES               *
+ **************************************/
+
+table
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table, td
+{
+	border: 1px solid #688A3C;
+}
+
+th, td
+{
+	padding: 7px 10px;
+}
+
+td
+{
+	color: #292929;
+}
+
+th
+{
+	text-align: left;
+	font-size: 17px;
+	background-color: #688A3C;
+	border: 1px solid #5A6B46;
+	color: #FDFFFD;
+	text-shadow: 0px 1px 0px #1A5200;
+	-webkit-text-shadow: 0px 1px 0px #1A5200;
+	-moz-text-shadow: 0px 1px 0px #1A5200;
+	-o-text-shadow: 0px 1px 0px #1A5200;
+	-ms-text-shadow: 0px 1px 0px #1A5200;
+}
+
+th.icon
+{
+	padding: 4px;
+	text-align: center;
+}
+
+td.numeric
+{
+	text-align: right;
+}
+
+td.name, td.total
+{
+	font-weight: bold;
+}
+
+td.name
+{
+	color: #203A00;
+}
+
+td.total
+{
+	color: black;
+}
+
+tr.total td
+{
+	border-top: 2px solid #030600;
+	border-right: 1px solid #D3E8B7;
+	border-left: 1px solid #D3E8B7;
+}
+
+tr.total td:nth-child(1)
+{
+	border-left: 1px solid #688A3C;
+}
+
+tr.total td:nth-last-child(1)
+{
+	border-right: 1px solid #688A3C;
+}
+
+td.meta
+{
+	font-style: italic;
+}
+
+/**************************************
  *            NOTIFICATIONS           *
  **************************************/
 
@@ -289,6 +376,39 @@ form button:active
 	padding: 12px;
 	border: 1px solid #116F00;
 	background-color: #F8FFF7;
+}
+
+/**************************************
+ *               LOGOS                *
+ **************************************/
+
+.logo.thumb
+{
+	margin-right: 11px;
+}
+
+img.logo.thumb
+{
+	vertical-align: middle;	
+	height: 20px;
+}
+
+div.logo.thumb
+{
+	font-size: 18px;
+	font-weight: bold;
+	font-style: italic;
+	color: #1F2E0B;
+	display: inline-block;
+}
+
+/**************************************
+ *              DASHBOARD             *
+ **************************************/
+ 
+td.payment-methods
+{
+	max-width: 240px;
 }
 
 /**************************************
