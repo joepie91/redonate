@@ -99,6 +99,11 @@ pre.debug
 	margin-bottom: 12px;
 }
 
+.main h3.spaced
+{
+	margin-bottom: 18px;
+}
+
 /**************************************
  *               FOOTER               *
  **************************************/
@@ -196,11 +201,12 @@ pre.debug
 	float: left;
 }
 
-.formfield input
+.formfield input, .formfield select
 {
 	font-size: 17px;
 	padding: 4px;
 	width: 270px;
+	box-sizing: content-box;
 	border: 1px solid #6CA825;
 	border-radius: 1px;
 	background-color: #F4FDE4;
@@ -429,7 +435,7 @@ div.logo
 	font-style: italic;
 	color: #1F2E0B;
 	display: inline-block;
-	font-size: 39px;
+	font-size: 35px;
 }
 
 div.logo.thumb
@@ -449,6 +455,32 @@ td.payment-methods
 .dashboard-section
 {
 	margin-top: 18px;
+}
+
+table.payment-methods td.logo
+{
+	width: 250px;
+	padding: 16px;
+	text-align: center;
+}
+
+table.payment-methods td.address
+{
+	padding: 18px;
+	font-size: 19px;
+}
+
+table.payment-methods td.remove
+{
+	padding-top: 20px;
+	text-align: center;
+	width: 110px;
+}
+
+table.payment-methods td.remove button
+{
+	padding: 9px 10px;
+	font-size: 15px;
 }
 
 /**************************************

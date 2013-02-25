@@ -21,7 +21,8 @@ class PaymentMethod extends CPHPDatabaseRecordClass
 	
 	public $prototype = array(
 		'string' => array(
-			'Address'		=> "Address"
+			'Address'		=> "Address",
+			'CustomName'		=> "CustomName"
 		),
 		'numeric' => array(
 			'Type'			=> "Type",
@@ -46,8 +47,28 @@ class PaymentMethod extends CPHPDatabaseRecordClass
 				return array("image" => "/static/images/bitcoin.png", "text" => "Bitcoin");
 			case PaymentMethod::IBAN:
 				return array("text" => "IBAN");
+			case 0:
+				return array("text" => $this->sCustomName);
 			default:
 				return array("text" => "Unknown");
 		}
+	}
+	
+	public static function ValidateAddress($type, $address)
+	{
+		switch($type)
+		{
+			case PaymentMethod::PAYPAL:
+				return filter_var($address, FILTER_VALIDATE_EMAIL);
+			case PaymentMethod::BITCOIN:
+				return (preg_match("/^[a-zA-Z1-9]{27,35}$/", $address) == true);
+			default:
+				return true;
+		}
+	}
+	
+	public static function CheckIfValidMethod($type)
+	{
+		return in_array($type, array(0, PaymentMethod::PAYPAL, PaymentMethod::BITCOIN));
 	}
 }

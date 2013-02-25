@@ -24,27 +24,32 @@ $router->ignore_query = true;
 
 $router->routes = array(
 	0 => array(
-		"^/$"						=> array(
-									'target' => "modules/index.php",
-									'_padded' => false
-								),
-		"^/sign-up$"					=> "modules/signup.php",
-		"^/login$"					=> "modules/login.php",
-		"^/about$"					=> "modules/about.php",
-		"^/logout/([a-zA-Z0-9]+)$"			=> "modules/logout.php",
-		"^/confirm/(.+)/([a-zA-Z0-9]+)$"		=> "modules/confirm.php",
-		"^/dashboard$"					=> array(
-									'target' => "modules/dashboard.php",
-									'authenticator' => "authenticators/user.php",
-									'auth_error' => "modules/error/guest.php"
-								),
-		"^/dashboard/([a-zA-Z0-9-]+)$"			=> array(
-									'target' => "modules/campaign/dashboard.php",
-									'authenticator' => "authenticators/user.php",
-									'auth_error' => "modules/error/guest.php"
-								),
-		"^/campaign/([a-zA-Z0-9-]+)$"			=> "modules/landing.php",
-		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"		=> "modules/subscribe.php"
+		"^/$"							=> array(
+										'target' => "modules/index.php",
+										'_padded' => false
+									),
+		"^/sign-up$"						=> "modules/signup.php",
+		"^/login$"						=> "modules/login.php",
+		"^/about$"						=> "modules/about.php",
+		"^/logout/([a-zA-Z0-9]+)$"				=> "modules/logout.php",
+		"^/confirm/(.+)/([a-zA-Z0-9]+)$"			=> "modules/confirm.php",
+		"^/dashboard$"						=> array(
+										'target' => "modules/dashboard.php",
+										'authenticator' => "authenticators/user.php",
+										'auth_error' => "modules/error/guest.php"
+									),
+		"^/dashboard/([a-zA-Z0-9-]+)$"				=> array(
+										'target' => "modules/campaign/dashboard.php",
+										'authenticator' => "authenticators/user.php",
+										'auth_error' => "modules/error/guest.php"
+									),
+		"^/dashboard/([a-zA-Z0-9-]+)/add-payment-method$"	=> array(
+										'target' => "modules/campaign/addmethod.php",
+										'authenticator' => "authenticators/user.php",
+										'auth_error' => "modules/error/guest.php"
+									),
+		"^/campaign/([a-zA-Z0-9-]+)$"				=> "modules/landing.php",
+		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> "modules/subscribe.php"
 	)
 );
 

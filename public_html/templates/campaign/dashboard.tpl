@@ -1,5 +1,13 @@
 <h2 class="spaced">Dashboard &gt; {%?name}</h2>
 
+{%if isempty|notices == false}
+	{%foreach notice in notices}
+		<div class="notices">
+			{%?notice}
+		</div>
+	{%/foreach}
+{%/if}
+
 <div class="dashboard-section">
 	<h3>Past month</h3>
 	
@@ -38,16 +46,30 @@
 
 <div class="dashboard-section">
 	<div class="complex-header">
-		<h3>Payment methods</h3>
+		<h3 class="spaced">Payment methods</h3>
 		<a class="button" href="/dashboard/{%?urlname}/add-payment-method">Add method</a>
 		<div class="clear"></div>
 	</div>
 	
-	{%foreach method in payment-methods}
-		{%if isempty|method[image] == false}
-			<img class="logo" src="{%?method[image]}" alt="{%?method[text]}">
-		{%else}
-			<div class="logo">{%?method[text]}</div>
-		{%/if}
-	{%/foreach}
+	<table class="payment-methods">
+		{%foreach method in payment-methods}
+			<tr>
+				<td class="logo">
+					{%if isempty|method[image] == false}
+						<img class="logo" src="{%?method[image]}" alt="{%?method[text]}">
+					{%else}
+						<div class="logo">{%?method[text]}</div>
+					{%/if}
+				</td>
+				<td class="address">
+					{%?method[address]}
+				</td>
+				<td class="remove">
+					<form method="post" action="/dashboard/{%?urlname}/remove-payment-method/{%?method[id]}">
+						<button type="submit">Remove</button>
+					</form>
+				</td>
+			</tr>
+		{%/foreach}
+	</table>
 </div>

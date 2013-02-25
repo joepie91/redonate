@@ -27,4 +27,30 @@ $(function(){
 			}
 		}
 	});
+	
+	$('.conditional').each(function(element){
+		var affected = $(this);
+		var target = $("#" + affected.data("conditional-element"));
+		var desired = $(this).data("conditional-value");
+		
+		target.change(function(){
+			if($(this).val() == desired)
+			{
+				affected.show();
+			}
+			else
+			{
+				affected.hide();
+			}
+		});
+		
+		if(target.val() == desired)
+		{
+			affected.show();
+		}
+		else
+		{
+			affected.hide();
+		}
+	});
 });

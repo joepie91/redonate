@@ -30,7 +30,10 @@ try
 	foreach(PaymentMethod::CreateFromQuery("SELECT * FROM payment_methods WHERE `CampaignId` = :CampaignId", 
 		array(":CampaignId" => $sCampaign->sId)) as $sPaymentMethod)
 	{
-		$sPaymentMethods[] = $sPaymentMethod->GetLogo();
+		$sNewMethod = $sPaymentMethod->GetLogo();
+		$sNewMethod['address'] = $sPaymentMethod->sAddress;
+		$sNewMethod['id'] = $sPaymentMethod->sId;
+		$sPaymentMethods[] = $sNewMethod;
 	}
 }
 catch (NotFoundException $e)
