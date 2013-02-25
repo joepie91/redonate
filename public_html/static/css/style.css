@@ -447,6 +447,11 @@ div.logo.thumb
  *              DASHBOARD             *
  **************************************/
  
+td.placeholder
+{
+	padding: 16px 19px;
+}
+ 
 td.payment-methods
 {
 	max-width: 240px;

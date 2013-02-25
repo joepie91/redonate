@@ -18,37 +18,43 @@
 		<th class="icon"><img src="/static/images/icons/projected.png" alt="Estimate of real donations per month, based on donation rate" title="Estimate of real donations per month, based on donation rate"></th>
 		<th>Payment methods</th>
 	</tr>
-	{%foreach campaign in campaigns}
-		<tr class="clickable" data-url="/dashboard/{%?campaign[urlname]}">
-			<td class="name">{%?campaign[name]}</td>
-			<td>
-				{%if campaign[one-off] == false}
-					Recurring
-				{%else}
-					Recurring &amp; One-off
-				{%/if}
-			</td>
-			<td class="numeric">{%?campaign[subscribers]}</td>
-			<td class="numeric">
-				{%if campaign[have-data] == true}
-					{%?campaign[rate]}%
-				{%else}
-					-
-				{%/if}
-			</td>
-			<td class="numeric">{%?campaign[total]}</td>
-			<td class="numeric total">{%?campaign[projection]}</td>
-			<td class="payment-methods">
-				{%foreach method in campaign[payment-methods]}
-					{%if isempty|method[image] == false}
-						<img class="logo thumb" src="{%?method[image]}" alt="{%?method[text]}">
-					{%else}
-						<div class="logo thumb">{%?method[text]}</div>
-					{%/if}
-				{%/foreach}
-			</td>
+	{%if isempty|campaigns == true}
+		<tr>
+			<td colspan="7" class="placeholder">You do not currently have any campaigns.</td>
 		</tr>
-	{%/foreach}
+	{%else}
+		{%foreach campaign in campaigns}
+			<tr class="clickable" data-url="/dashboard/{%?campaign[urlname]}">
+				<td class="name">{%?campaign[name]}</td>
+				<td>
+					{%if campaign[one-off] == false}
+						Recurring
+					{%else}
+						Recurring &amp; One-off
+					{%/if}
+				</td>
+				<td class="numeric">{%?campaign[subscribers]}</td>
+				<td class="numeric">
+					{%if campaign[have-data] == true}
+						{%?campaign[rate]}%
+					{%else}
+						-
+					{%/if}
+				</td>
+				<td class="numeric">{%?campaign[total]}</td>
+				<td class="numeric total">{%?campaign[projection]}</td>
+				<td class="payment-methods">
+					{%foreach method in campaign[payment-methods]}
+						{%if isempty|method[image] == false}
+							<img class="logo thumb" src="{%?method[image]}" alt="{%?method[text]}">
+						{%else}
+							<div class="logo thumb">{%?method[text]}</div>
+						{%/if}
+					{%/foreach}
+				</td>
+			</tr>
+		{%/foreach}
+	{%/if}
 	<tr class="total">
 		<td class="meta" colspan="2">Total</td>
 		<td class="numeric">{%?total-subscribers}</td>
