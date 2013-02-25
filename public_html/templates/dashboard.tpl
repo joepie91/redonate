@@ -55,8 +55,6 @@
 		<td class="numeric">{%?total-rate}%</td>
 		<td class="numeric">{%?total-total}</td>
 		<td class="numeric total">{%?total-projection}</td>
-		<td class="payment-methods">
-			
-		</td>
+		<td></td>
 	</tr>
 </table>

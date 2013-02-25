@@ -13,4 +13,9 @@
 
 if(!isset($_APP)) { die("Unauthorized."); }
 
+if(!empty($_SESSION['user_id']))
+{
+	flash_notice('Hi! It seems you are already logged in. Did you want to go to your <a href="/dashboard">Dashboard</a>?');
+}
+
 $sPageContents = NewTemplater::Render("index", $locale->strings, array());

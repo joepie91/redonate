@@ -39,6 +39,7 @@ NewTemplater::SetGlobalVariable("logged-in", !empty($_SESSION['user_id']));
 
 if(!empty($_SESSION['user_id']))
 {
+	/* TODO: Handle being logged in to a non-existent user */
 	$sCurrentUser = new User($_SESSION['user_id']);
 	
 	$sCurrentUser->SetGlobalVariables();

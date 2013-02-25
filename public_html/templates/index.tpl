@@ -1,10 +1,19 @@
 <div class="padding">
 	<h2>ReDonate is recurring contributions, done right.</h2>
 </div>
+
 <div class="intro">
 	<img src="/static/images/intro.png">
 </div>
 <div class="padding">
+	{%if isempty|notices == false}
+		{%foreach notice in notices}
+			<div class="notices">
+				{%?notice}
+			</div>
+		{%/foreach}
+	{%/if}
+
 	<div class="col1">
 		<h3>Why use ReDonate?</h3>
 		
