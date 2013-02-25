@@ -36,7 +36,8 @@ class Campaign extends CPHPDatabaseRecordClass
 			'HaveData'		=> "HaveData"
 		),
 		'timestamp' => array(
-			'LastStatisticsUpdate'	=> "LastStatisticsUpdate"
+			'LastStatisticsUpdate'	=> "LastStatisticsUpdate",
+			'CreationDate'		=> "CreationDate"
 		),
 		'user' => array(
 			'Owner'			=> "OwnerId"
@@ -59,6 +60,29 @@ class Campaign extends CPHPDatabaseRecordClass
 	public static function FindByUrlName($urlname)
 	{
 		return self::CreateFromQuery("SELECT * FROM campaigns WHERE `UrlName` = :UrlName", array(':UrlName' => $urlname), 0, true);
+	}
+	
+	public static function GenerateUrlName($name)
+	{
+		$found = false;
+		$iteration = 0;
+		$sUrlName = "";
+		
+		try
+		{
+			while(true)
+			{
+				$sUrlName = generate_urlname($name, $iteration);
+				$result = Campaign::FindByUrlName($sUrlName);
+				$iteration += 1;
+			}
+		}
+		catch (NotFoundException $e)
+		{
+			/* Current UrlName is not in use */
+		}
+		
+		return $sUrlName;
 	}
 	
 	public function VerifyAdministratorAccess($userid)

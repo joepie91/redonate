@@ -64,3 +64,8 @@
 		<td></td>
 	</tr>
 </table>
+
+<div class="toolbar">
+	<a class="button" href="/create">Create new campaign</a>
+	<div class="clear"></div>
+</div>

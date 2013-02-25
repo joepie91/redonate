@@ -201,7 +201,7 @@ pre.debug
 	float: left;
 }
 
-.formfield input, .formfield select
+.formfield input:not([type=checkbox]), .formfield select
 {
 	font-size: 17px;
 	padding: 4px;
@@ -210,6 +210,13 @@ pre.debug
 	border: 1px solid #6CA825;
 	border-radius: 1px;
 	background-color: #F4FDE4;
+}
+
+.formfield input[type=checkbox]
+{
+	margin-top: 10px;
+	width: 18px;
+	height: 18px;
 }
 
 .formfield label
@@ -226,6 +233,16 @@ form.narrow .formfield label
 	width: 130px;
 }
 
+form.wide .formfield label
+{
+	width: 230px;
+}
+
+form.wide .formfield input:not([type=checkbox])
+{
+	width: 210px;
+}
+
 .formfield.submit
 {
 	padding-left: 182px;
@@ -235,6 +252,11 @@ form.narrow .formfield label
 form.narrow .formfield.submit
 {
 	padding-left: 142px;
+}
+
+form.wide .formfield.submit
+{
+	padding-left: 200px;
 }
 
 form .note
@@ -741,7 +763,20 @@ p.pledge-button
 	margin-right: 12px;
 }
 
-.complex-header .button
+/**************************************
+ *              TOOLBAR               *
+ **************************************/
+
+.toolbar
+{
+	margin: 16px 4px;
+}
+
+/**************************************
+ *          CONTEXT BUTTONS           *
+ **************************************/
+
+a.button
 {
 	float: left;
 	display: block;
@@ -756,7 +791,7 @@ p.pledge-button
 	color: black;
 }
 
-.complex-header .button:hover
+a.button:hover
 {
 	border: 1px solid #587532;
 	background-color: #F1FFD0;

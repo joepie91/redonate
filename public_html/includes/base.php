@@ -127,3 +127,17 @@ function send_mail($to, $subject, $text, $html)
 	
 	//$mail_transport->send($sMessage);
 }
+
+function generate_urlname($input, $iteration)
+{
+	$uUrlName = preg_replace("/[ =_+]/", "-", $input);
+	$sUrlName = preg_replace("/[^a-zA-Z0-9-]/", "", $uUrlName);
+	$sUrlName = strtolower($sUrlName);
+	
+	if($iteration > 0)
+	{
+		$sUrlName .= "-" . $iteration;
+	}
+	
+	return $sUrlName;
+}

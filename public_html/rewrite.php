@@ -33,6 +33,11 @@ $router->routes = array(
 		"^/about$"						=> "modules/about.php",
 		"^/logout/([a-zA-Z0-9]+)$"				=> "modules/logout.php",
 		"^/confirm/(.+)/([a-zA-Z0-9]+)$"			=> "modules/confirm.php",
+		"^/create$"						=> array(
+			'target' => "modules/campaign/create.php",
+			'authenticator' => "authenticators/user.php",
+			'auth_error' => "modules/error/guest.php"
+		),
 		"^/dashboard$"						=> array(
 			'target' => "modules/dashboard.php",
 			'authenticator' => "authenticators/user.php",
