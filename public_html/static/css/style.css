@@ -93,6 +93,12 @@ pre.debug
 	margin-bottom: 24px;
 }
 
+.main h3
+{
+	font-size: 26px;
+	margin-bottom: 12px;
+}
+
 /**************************************
  *               FOOTER               *
  **************************************/
@@ -396,9 +402,19 @@ td.meta
  *               LOGOS                *
  **************************************/
 
+.logo
+{
+	margin-right: 17px;
+}
+
 .logo.thumb
 {
 	margin-right: 11px;
+}
+
+img.logo
+{
+	vertical-align: bottom;
 }
 
 img.logo.thumb
@@ -407,13 +423,18 @@ img.logo.thumb
 	height: 20px;
 }
 
-div.logo.thumb
+div.logo
 {
-	font-size: 18px;
 	font-weight: bold;
 	font-style: italic;
 	color: #1F2E0B;
 	display: inline-block;
+	font-size: 39px;
+}
+
+div.logo.thumb
+{
+	font-size: 18px;
 }
 
 /**************************************
@@ -423,6 +444,77 @@ div.logo.thumb
 td.payment-methods
 {
 	max-width: 240px;
+}
+
+.dashboard-section
+{
+	margin-top: 18px;
+}
+
+/**************************************
+ *             BAR GRAPH              *
+ **************************************/
+ 
+.bar-graph
+{
+	margin-top: 12px;
+	float: left;
+	height: 80px;
+	width: 580px;
+	border: 1px solid silver;
+}
+
+.bar-graph .area
+{
+	float: left;
+	height: 80px;
+}
+
+.bar-graph .area.unsubscribed, .graph-legend .item .box.unsubscribed
+{
+	background-color: #676767;
+}
+
+.bar-graph .area.not-donated, .graph-legend .item .box.not-donated
+{
+	background-color: #9C9C9C;
+}
+
+.bar-graph .area.donated, .graph-legend .item .box.donated
+{
+	background-color: #85E142;
+}
+
+.bar-graph .area.subscribed, .graph-legend .item .box.subscribed
+{
+	background-color: #19D00D;
+}
+
+.graph-legend
+{
+	float: left;
+	margin-top: 10px;
+	margin-left: 24px;
+}
+
+.graph-legend .item
+{
+	margin-top: 2px;
+}
+
+.graph-legend .item .box
+{
+	float: left;
+	width: 16px;
+	height: 16px;
+	border: 1px solid gray;
+}
+
+.graph-legend .item .description
+{
+	float: left;
+	font-weight: bold;
+	margin-left: 8px;
 }
 
 /**************************************
