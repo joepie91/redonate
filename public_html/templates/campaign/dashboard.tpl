@@ -51,25 +51,29 @@
 		<div class="clear"></div>
 	</div>
 	
-	<table class="payment-methods">
-		{%foreach method in payment-methods}
-			<tr>
-				<td class="logo">
-					{%if isempty|method[image] == false}
-						<img class="logo" src="{%?method[image]}" alt="{%?method[text]}">
-					{%else}
-						<div class="logo">{%?method[text]}</div>
-					{%/if}
-				</td>
-				<td class="address">
-					{%?method[address]}
-				</td>
-				<td class="remove">
-					<form method="post" action="/dashboard/{%?urlname}/remove-payment-method/{%?method[id]}">
-						<button type="submit">Remove</button>
-					</form>
-				</td>
-			</tr>
-		{%/foreach}
-	</table>
+	{%if isempty|payment-methods == false}
+		<table class="payment-methods">
+			{%foreach method in payment-methods}
+				<tr>
+					<td class="logo">
+						{%if isempty|method[image] == false}
+							<img class="logo" src="{%?method[image]}" alt="{%?method[text]}">
+						{%else}
+							<div class="logo">{%?method[text]}</div>
+						{%/if}
+					</td>
+					<td class="address">
+						{%?method[address]}
+					</td>
+					<td class="remove">
+						<form method="post" action="/dashboard/{%?urlname}/remove-payment-method/{%?method[id]}">
+							<button type="submit">Remove</button>
+						</form>
+					</td>
+				</tr>
+			{%/foreach}
+		</table>
+	{%else}
+		<p>No payment methods have been added yet.</p>
+	{%/if}
 </div>
