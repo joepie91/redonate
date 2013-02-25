@@ -2,9 +2,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>ReDonate :: {%?title}</title>
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700|Roboto:500' rel='stylesheet' type='text/css'>
 		<link href="/static/css/style.css" rel="stylesheet">
-		<title>ReDonate :: {%?title}</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="/static/script/script.js"></script>
 	</head>
 	<body>
 		<div class="wrapper">

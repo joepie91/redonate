@@ -19,7 +19,7 @@
 		<th>Payment methods</th>
 	</tr>
 	{%foreach campaign in campaigns}
-		<tr>
+		<tr class="clickable" data-url="/dashboard/{%?campaign[urlname]}">
 			<td class="name">{%?campaign[name]}</td>
 			<td>
 				{%if campaign[one-off] == false}

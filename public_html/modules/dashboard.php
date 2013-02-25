@@ -51,6 +51,7 @@ try
 		
 		$sCampaigns[] = array(
 			"name" => $sCampaign->sName,
+			"urlname" => $sCampaign->sUrlName,
 			"subscribers" => number_format($sCampaign->sSubscriberCount, 0),
 			"rate" => number_format($sCampaign->sDonationRate, 2),
 			"total" => Currency::Format("usd", $sCampaign->sMonthlyTotal),
