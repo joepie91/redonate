@@ -30,6 +30,7 @@ $router->routes = array(
 								),
 		"^/sign-up$"					=> "modules/signup.php",
 		"^/login$"					=> "modules/login.php",
+		"^/about$"					=> "modules/about.php",
 		"^/logout/([a-zA-Z0-9]+)$"			=> "modules/logout.php",
 		"^/confirm/(.+)/([a-zA-Z0-9]+)$"		=> "modules/confirm.php",
 		"^/dashboard$"					=> array(
