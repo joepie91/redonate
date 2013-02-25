@@ -41,6 +41,7 @@ catch (NotFoundException $e)
 $sPageTitle = "Dashboard for {$sCampaign->sName}";
 $sPageContents = NewTemplater::Render("campaign/dashboard", $locale->strings, array(
 	"name"			=> $sCampaign->sName,
+	"urlname"		=> $sCampaign->sUrlName,
 	"payment-methods"	=> $sPaymentMethods
 ));
 

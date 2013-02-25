@@ -693,3 +693,34 @@ p.pledge-button
 {
 	padding: 16px 20px;
 }
+
+/**************************************
+ *          COMPLEX HEADERS           *
+ **************************************/
+ 
+.complex-header h1, .complex-header h2, .complex-header h3, .complex-header h4, .complex-header h5, .complex-header h6
+{
+	float: left;
+	margin-right: 12px;
+}
+
+.complex-header .button
+{
+	float: left;
+	display: block;
+	border: 1px solid #8BA866;
+	border-radius: 8px;
+	background-color: #F5FAEA;
+	padding: 3px 6px;
+	margin-top: 3px;
+	margin-right: 8px;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+
+.complex-header .button:hover
+{
+	border: 1px solid #587532;
+	background-color: #F1FFD0;
+}

@@ -37,7 +37,11 @@
 </div>
 
 <div class="dashboard-section">
-	<h3>Payment methods</h3>
+	<div class="complex-header">
+		<h3>Payment methods</h3>
+		<a class="button" href="/dashboard/{%?urlname}/add-payment-method">Add method</a>
+		<div class="clear"></div>
+	</div>
 	
 	{%foreach method in payment-methods}
 		{%if isempty|method[image] == false}
