@@ -25,7 +25,7 @@ class Campaign extends CPHPDatabaseRecordClass
 			'UrlName'		=> "UrlName"
 		),
 		'numeric' => array(
-			'OwnerId'		=> "UserId",
+			'OwnerId'		=> "OwnerId",
 			'DonationRate'		=> "DonationRate",
 			'SubscriberCount'	=> "SubscriberCount",
 			'MonthlyTotal'		=> "TotalMonthlyDonations",
@@ -39,7 +39,7 @@ class Campaign extends CPHPDatabaseRecordClass
 			'LastStatisticsUpdate'	=> "LastStatisticsUpdate"
 		),
 		'user' => array(
-			'Owner'			=> "Owner"
+			'Owner'			=> "OwnerId"
 		)
 	);
 	
@@ -59,6 +59,11 @@ class Campaign extends CPHPDatabaseRecordClass
 	public static function FindByUrlName($urlname)
 	{
 		return self::CreateFromQuery("SELECT * FROM campaigns WHERE `UrlName` = :UrlName", array(':UrlName' => $urlname), 0, true);
+	}
+	
+	public function VerifyAdministratorAccess($userid)
+	{
+		return ($this->sOwnerId == $userid);
 	}
 	
 	public function UpdateStatistics()

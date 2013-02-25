@@ -23,6 +23,11 @@ catch (NotFoundException $e)
 	throw new RouterException("Campaign does not exist.");
 }
 
+if($sCampaign->VerifyAdministratorAccess($_SESSION['user_id']) === false)
+{
+	throw new RouterException("Not authorized to administrate this campaign.");
+}
+
 if(!empty($_POST['submit']))
 {
 	if(empty($_POST['address']))
