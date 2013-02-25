@@ -34,20 +34,25 @@ $router->routes = array(
 		"^/logout/([a-zA-Z0-9]+)$"				=> "modules/logout.php",
 		"^/confirm/(.+)/([a-zA-Z0-9]+)$"			=> "modules/confirm.php",
 		"^/dashboard$"						=> array(
-										'target' => "modules/dashboard.php",
-										'authenticator' => "authenticators/user.php",
-										'auth_error' => "modules/error/guest.php"
-									),
+			'target' => "modules/dashboard.php",
+			'authenticator' => "authenticators/user.php",
+			'auth_error' => "modules/error/guest.php"
+		),
 		"^/dashboard/([a-zA-Z0-9-]+)$"				=> array(
-										'target' => "modules/campaign/dashboard.php",
-										'authenticator' => "authenticators/user.php",
-										'auth_error' => "modules/error/guest.php"
-									),
+			'target' => "modules/campaign/dashboard.php",
+			'authenticator' => "authenticators/user.php",
+			'auth_error' => "modules/error/guest.php"
+		),
 		"^/dashboard/([a-zA-Z0-9-]+)/add-payment-method$"	=> array(
-										'target' => "modules/campaign/addmethod.php",
-										'authenticator' => "authenticators/user.php",
-										'auth_error' => "modules/error/guest.php"
-									),
+			'target' => "modules/campaign/addmethod.php",
+			'authenticator' => "authenticators/user.php",
+			'auth_error' => "modules/error/guest.php"
+		),
+		"^/dashboard/([a-zA-Z0-9-]+)/remove-payment-method/([0-9]+)$"	=> array(
+			'target' => "modules/campaign/removemethod.php",
+			'authenticator' => "authenticators/user.php",
+			'auth_error' => "modules/error/guest.php"
+		),
 		"^/campaign/([a-zA-Z0-9-]+)$"				=> "modules/landing.php",
 		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> "modules/subscribe.php"
 	)
