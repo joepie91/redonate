@@ -24,7 +24,7 @@ try
 	$sLogEntry->uType = LogEntry::SUBSCRIPTION_CONFIRMED;
 	$sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];
 	$sLogEntry->uData = json_encode(array("email" => $router->uParameters[1]));
-	$sLogEntry->uCampaignId = $sCampaign->sId;
+	$sLogEntry->uCampaignId = $sSubscription->sCampaignId;
 	$sLogEntry->uDate = time();
 	$sLogEntry->uSessionId = session_id();
 	$sLogEntry->InsertIntoDatabase();
