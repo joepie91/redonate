@@ -21,26 +21,30 @@ class Campaign extends CPHPDatabaseRecordClass
 	
 	public $prototype = array(
 		'string' => array(
-			'Name'			=> "Name",
-			'UrlName'		=> "UrlName"
+			'Name'				=> "Name",
+			'UrlName'			=> "UrlName"
 		),
 		'numeric' => array(
-			'OwnerId'		=> "OwnerId",
-			'DonationRate'		=> "DonationRate",
-			'SubscriberCount'	=> "SubscriberCount",
-			'MonthlyTotal'		=> "TotalMonthlyDonations",
-			'MonthlyProjection'	=> "ProjectedMonthlyDonations"
+			'OwnerId'			=> "OwnerId",
+			'DonationRate'			=> "DonationRate",
+			'SubscriberCount'		=> "SubscriberCount",
+			'MonthlyTotal'			=> "TotalMonthlyDonations",
+			'MonthlyProjection'		=> "ProjectedMonthlyDonations",
+			'PastMonthDonations'		=> "PastMonthDonations",
+			'PastMonthNonDonations'		=> "PastMonthNonDonations",
+			'PastMonthSubscriptions'	=> "PastMonthSubscriptions",
+			'PastMonthUnsubscriptions'	=> "PastMonthUnsubscriptions"
 		),
 		'boolean' => array(
-			'AllowOneTime'		=> "AllowOneTime",
-			'HaveData'		=> "HaveData"
+			'AllowOneTime'			=> "AllowOneTime",
+			'HaveData'			=> "HaveData"
 		),
 		'timestamp' => array(
-			'LastStatisticsUpdate'	=> "LastStatisticsUpdate",
-			'CreationDate'		=> "CreationDate"
+			'LastStatisticsUpdate'		=> "LastStatisticsUpdate",
+			'CreationDate'			=> "CreationDate"
 		),
 		'user' => array(
-			'Owner'			=> "OwnerId"
+			'Owner'				=> "OwnerId"
 		)
 	);
 	
@@ -131,6 +135,7 @@ class Campaign extends CPHPDatabaseRecordClass
 			catch (NotFoundException $e)
 			{
 				/* We don't have any data to work from yet. */
+				$sDonationsAsked = array();
 				$have_data = false; 
 			}
 			
@@ -146,6 +151,7 @@ class Campaign extends CPHPDatabaseRecordClass
 				}
 				catch (NotFoundException $e)
 				{
+					$sDonationsMade = array();
 					$this->uDonationRate = 0;
 					$this->uHaveData = false;
 				}
@@ -158,6 +164,26 @@ class Campaign extends CPHPDatabaseRecordClass
 			
 			/* Update projected monthly donations */
 			$this->uMonthlyProjection = $this->uMonthlyTotal * ($this->uDonationRate / 100);
+			
+			/* Update past-month subscription count */ 
+			if($result = $database->CachedQuery("SELECT COUNT(*) FROM log_entries WHERE `CampaignId` = :CampaignId AND `Type` = :Type AND `Date` > DATE_SUB(NOW(), INTERVAL 1 MONTH)", 
+				array(":CampaignId" => $this->sId, ":Type" => LogEntry::SUBSCRIPTION)))
+			{
+				$this->uPastMonthSubscriptions = $result->data[0]["COUNT(*)"];
+			}
+			
+			/* Update past-month unsubscription count */ 
+			if($result = $database->CachedQuery("SELECT COUNT(*) FROM log_entries WHERE `CampaignId` = :CampaignId AND `Type` = :Type AND `Date` > DATE_SUB(NOW(), INTERVAL 1 MONTH)", 
+				array(":CampaignId" => $this->sId, ":Type" => LogEntry::UNSUBSCRIPTION)))
+			{
+				$this->uPastMonthUnsubscriptions = $result->data[0]["COUNT(*)"];
+			}
+			
+			/* Update past month donation count */
+			$this->uPastMonthDonations = count($sDonationsMade);
+			
+			/* Update past month non-donation count */
+			$this->uPastMonthNonDonations = count($sDonationsAsked) - count($sDonationsMade);
 			
 			$this->uLastStatisticsUpdate = time();
 			$this->InsertIntoDatabase();

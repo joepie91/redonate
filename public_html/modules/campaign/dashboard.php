@@ -46,10 +46,36 @@ catch (NotFoundException $e)
 	/* No payment methods...? */
 }
 
+$sEventTotal = $sCampaign->sPastMonthSubscriptions + $sCampaign->sPastMonthUnsubscriptions + $sCampaign->sPastMonthDonations + $sCampaign->sPastMonthNonDonations;
+
+if($sEventTotal !== 0)
+{
+	$sSubscriptionPercentage = ($sCampaign->sPastMonthSubscriptions / $sEventTotal) * 100;
+	$sUnsubscriptionPercentage = ($sCampaign->sPastMonthUnsubscriptions / $sEventTotal) * 100;
+	$sDonationPercentage = ($sCampaign->sPastMonthDonations / $sEventTotal) * 100;
+	$sNonDonationPercentage = ($sCampaign->sPastMonthNonDonations / $sEventTotal) * 100;
+}
+else
+{
+	/* We obviously can't divide by zero - and nothing happened anyway. */
+	$sSubscriptionPercentage = 0;
+	$sUnsubscriptionPercentage = 0;
+	$sDonationPercentage = 0;
+	$sNonDonationPercentage = 0;
+}
+
 $sPageTitle = "Dashboard for {$sCampaign->sName}";
 $sPageContents = NewTemplater::Render("campaign/dashboard", $locale->strings, array(
-	"name"			=> $sCampaign->sName,
-	"urlname"		=> $sCampaign->sUrlName,
-	"payment-methods"	=> $sPaymentMethods
+	"name"				=> $sCampaign->sName,
+	"urlname"			=> $sCampaign->sUrlName,
+	"payment-methods"		=> $sPaymentMethods,
+	"subscriptions-amount"		=> $sCampaign->sPastMonthSubscriptions,
+	"subscriptions-percentage"	=> $sSubscriptionPercentage,
+	"unsubscriptions-amount"	=> $sCampaign->sPastMonthUnsubscriptions,
+	"unsubscriptions-percentage"	=> $sUnsubscriptionPercentage,
+	"donations-amount"		=> $sCampaign->sPastMonthDonations,
+	"donations-percentage"		=> $sDonationPercentage,
+	"nondonations-amount"		=> $sCampaign->sPastMonthNonDonations,
+	"nondonations-percentage"	=> $sNonDonationPercentage	
 ));
 
