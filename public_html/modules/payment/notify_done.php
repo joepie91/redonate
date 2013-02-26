@@ -16,5 +16,14 @@ if(!isset($_APP)) { die("Unauthorized."); }
 $sPaymentRequest->uPaid = true;
 $sPaymentRequest->InsertIntoDatabase();
 
+$sLogEntry = new LogEntry(0);
+$sLogEntry->uType = LogEntry::DONATION_MADE;
+$sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];
+$sLogEntry->uData = json_encode(array("payment_request" => $sPaymentRequest->sId, "method" => $router->uParameters[4]));
+$sLogEntry->uCampaignId = $sPaymentRequest->sCampaign->sId;
+$sLogEntry->uDate = time();
+$sLogEntry->uSessionId = session_id();
+$sLogEntry->InsertIntoDatabase();
+
 $sPageTitle = "Thanks!";
 $sPageContents = NewTemplater::Render("payment/done", $locale->strings, array());
