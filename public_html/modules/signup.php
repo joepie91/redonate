@@ -61,11 +61,11 @@ if(!empty($_POST['submit']))
 		
 		send_mail($_POST['email'], "Please confirm your registration at ReDonate.", 
 			NewTemplater::Render("email/signup.txt", $locale->strings, array(
-				"confirmation-url" => "http://redonate.cryto.net/confirm/{$sUser->sEmailAddress}/{$sUser->sActivationKey}/",
+				"confirmation-url" => "http://redonate.net/confirm/{$sUser->sEmailAddress}/{$sUser->sActivationKey}/",
 				"name" => $sUser->uDisplayName)), /* we don't want a HTML-entities-encoded version here */
 			NewTemplater::Render("email/layout.html", $locale->strings, array(
 				"contents" => NewTemplater::Render("email/signup.html", $locale->strings, array(
-					"confirmation-url" => "http://redonate.cryto.net/confirm/{$sUser->sEmailAddress}/{$sUser->sActivationKey}/",
+					"confirmation-url" => "http://redonate.net/confirm/{$sUser->sEmailAddress}/{$sUser->sActivationKey}/",
 					"name" => $sUser->sDisplayName))
 			))
 		);
