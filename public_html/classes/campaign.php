@@ -168,7 +168,7 @@ class Campaign extends CPHPDatabaseRecordClass
 			
 			/* Update past-month subscription count */ 
 			if($result = $database->CachedQuery("SELECT COUNT(*) FROM log_entries WHERE `CampaignId` = :CampaignId AND `Type` = :Type AND `Date` > DATE_SUB(NOW(), INTERVAL 1 MONTH)", 
-				array(":CampaignId" => $this->sId, ":Type" => LogEntry::SUBSCRIPTION)))
+				array(":CampaignId" => $this->sId, ":Type" => LogEntry::SUBSCRIPTION_CONFIRMED)))
 			{
 				$this->uPastMonthSubscriptions = $result->data[0]["COUNT(*)"];
 			}
