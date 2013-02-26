@@ -158,6 +158,7 @@ class Campaign extends CPHPDatabaseRecordClass
 			}
 			else
 			{
+				$sDonationsMade = array();
 				$this->uDonationRate = 100;
 				$this->uHaveData = false;
 			}
