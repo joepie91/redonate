@@ -9,6 +9,11 @@
 {%/if}
 
 <div class="dashboard-section">
+	<h3 class="spaced">Your public campaign page URL</h3>
+	<input class="permalink" type="text" value="http://redonate.net/campaign/{%?urlname}">
+</div>
+
+<div class="dashboard-section">
 	<h3>Past month</h3>
 	
 	<div class="bar-graph">

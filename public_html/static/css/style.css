@@ -201,7 +201,7 @@ pre.debug
 	float: left;
 }
 
-.formfield input:not([type=checkbox]), .formfield select
+.formfield input:not([type=checkbox]), .formfield select, input.permalink
 {
 	font-size: 17px;
 	padding: 4px;
@@ -210,6 +210,11 @@ pre.debug
 	border: 1px solid #6CA825;
 	border-radius: 1px;
 	background-color: #F4FDE4;
+}
+
+input.permalink
+{
+	width: 420px;
 }
 
 .formfield input[type=checkbox]
