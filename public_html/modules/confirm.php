@@ -20,6 +20,15 @@ try
 	$sSubscription->uIsConfirmed = true;
 	$sSubscription->InsertIntoDatabase();
 	
+	$sLogEntry = new LogEntry(0);
+	$sLogEntry->uType = LogEntry::SUBSCRIPTION_CONFIRMED;
+	$sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];
+	$sLogEntry->uData = json_encode(array("email" => $router->uParameters[1]));
+	$sLogEntry->uCampaignId = $sCampaign->sId;
+	$sLogEntry->uDate = time();
+	$sLogEntry->uSessionId = session_id();
+	$sLogEntry->InsertIntoDatabase();
+	
 	flash_notice("Your subscription was successfully confirmed. Welcome on board!");
 	redirect("/manage/{$sSubscription->sEmailAddress}/{$sSubscription->sSettingsKey}");
 }
