@@ -46,8 +46,16 @@ if(empty($_POST['amount']) || preg_match("([0-9]*[.,][0-9]+|[0-9]+)", $_POST['am
 
 try
 {
-	Subscription::FindByEmail($_POST['email']);
-	$exists = true;
+	$exists = false;
+	
+	foreach(Subscription::FindByEmail($_POST['email']) as $sSubscription)
+	{
+		if($sSubscription->sCampaignId == $sCampaign->sId)
+		{
+			$exists = true;
+		}
+	}
+	
 }
 catch (NotFoundException $e)
 {
