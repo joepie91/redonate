@@ -96,9 +96,9 @@ class Campaign extends CPHPDatabaseRecordClass
 	
 	public function UpdateStatistics()
 	{
-		global $database;
+		global $database, $cphp_config;
 		
-		if($this->sLastStatisticsUpdate < time() - (60 * 5))
+		if(!empty($cphp_config->debugmode) || $this->sLastStatisticsUpdate < time() - (60 * 5))
 		{	
 			/* Update subscriber count */
 			if($result = $database->CachedQuery("SELECT COUNT(*) FROM subscriptions WHERE `CampaignId` = :CampaignId AND `Confirmed` = 1", array(":CampaignId" => $this->sId)))
