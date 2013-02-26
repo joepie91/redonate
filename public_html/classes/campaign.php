@@ -94,6 +94,21 @@ class Campaign extends CPHPDatabaseRecordClass
 		return ($this->sOwnerId == $userid);
 	}
 	
+	public function GetPaymentMethod($type)
+	{
+		try
+		{
+			$sPaymentMethod = PaymentMethod::CreateFromQuery("SELECT * FROM payment_methods WHERE `CampaignId` = :CampaignId AND `Type` = :Type", 
+				array(":CampaignId" => $this->sId, ":Type" => $type), 30, true);
+		}
+		catch (NotFoundException $e)
+		{
+			throw new NotFoundException("No valid payment method specified.");
+		}
+		
+		return $sPaymentMethod;
+	}
+	
 	public function UpdateStatistics()
 	{
 		global $database, $cphp_config;

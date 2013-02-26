@@ -58,6 +58,26 @@ $router->routes = array(
 			'authenticator' => "authenticators/user.php",
 			'auth_error' => "modules/error/guest.php"
 		),
+		"^/pay/(.+)/([0-9]+)/([a-zA-Z0-9]+)/(.+)/done$"		=> array(
+			'target' => "modules/payment/notify_done.php",
+			'authenticator' => "authenticators/payment.php",
+			'auth_error' => "modules/error/nosuchpayment.php"
+		),
+		"^/pay/(.+)/([0-9]+)/([a-zA-Z0-9]+)/paypal$"		=> array(
+			'target' => "modules/payment/paypal.php",
+			'authenticator' => "authenticators/payment.php",
+			'auth_error' => "modules/error/nosuchpayment.php"
+		),
+		"^/pay/(.+)/([0-9]+)/([a-zA-Z0-9]+)/bitcoin$"		=> array(
+			'target' => "modules/payment/bitcoin.php",
+			'authenticator' => "authenticators/payment.php",
+			'auth_error' => "modules/error/nosuchpayment.php"
+		),
+		"^/pay/(.+)/([0-9]+)/([a-zA-Z0-9]+)/([0-9]+)$"		=> array(
+			'target' => "modules/payment/other.php",
+			'authenticator' => "authenticators/payment.php",
+			'auth_error' => "modules/error/nosuchpayment.php"
+		),
 		"^/campaign/([a-zA-Z0-9-]+)$"				=> "modules/landing.php",
 		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> "modules/subscribe.php"
 	)
