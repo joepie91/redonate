@@ -94,6 +94,11 @@ class Campaign extends CPHPDatabaseRecordClass
 		return ($this->sOwnerId == $userid);
 	}
 	
+	public function GetPaymentMethods()
+	{
+		return PaymentMethod::CreateFromQuery("SELECT * FROM payment_methods WHERE `CampaignId` = :CampaignId", array(":CampaignId" => $this->sId), 30);
+	}
+	
 	public function GetPaymentMethod($type)
 	{
 		try

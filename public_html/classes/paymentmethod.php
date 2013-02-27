@@ -54,6 +54,42 @@ class PaymentMethod extends CPHPDatabaseRecordClass
 		}
 	}
 	
+	public function GenerateUrl($sRequest)
+	{
+		$sUrlName = $this->GetUrlName();
+		return "http://redonate.net/pay/{$sRequest->sSubscription->sEmailAddress}/{$sRequest->sId}/{$sRequest->sKey}/{$sUrlName}";
+	}
+	
+	public function GetName()
+	{
+		switch($this->sType)
+		{
+			case PaymentMethod::PAYPAL:
+				return "PayPal";
+			case PaymentMethod::BITCOIN:
+				return "Bitcoin";
+			case 0:
+				return "{$this->sCustomName}";
+			default:
+				throw Exception("No valid payment method type.");
+		}
+	}
+	
+	public function GetUrlName()
+	{
+		switch($this->sType)
+		{
+			case PaymentMethod::PAYPAL:
+				return "paypal";
+			case PaymentMethod::BITCOIN:
+				return "bitcoin";
+			case 0:
+				return "{$this->sId}";
+			default:
+				throw Exception("No valid payment method type.");
+		}
+	}
+	
 	public static function ValidateAddress($type, $address)
 	{
 		switch($type)

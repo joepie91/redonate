@@ -42,4 +42,39 @@ class PaymentRequest extends CPHPDatabaseRecordClass
 			'Subscription'		=> "SubscriptionId"
 		)
 	);
+	
+	public function GenerateEmail()
+	{
+		global $locale;
+		
+		$sMethods = array();
+		
+		foreach($this->sCampaign->GetPaymentMethods() as $sPaymentMethod)
+		{
+			$sMethods[] = array(
+				"name" => $sPaymentMethod->GetName(),
+				"url" => $sPaymentMethod->GenerateUrl($this)
+			);
+		}
+		
+		$sText = NewTemplater::Render("email/reminder.txt", $locale->strings, array(
+			"campaign-name" => $this->sCampaign->sName,
+			"amount" => Currency::Format($this->sCurrency, $this->sAmount),
+			"skip-url" => "http://redonate.net/pay/{$this->sSubscription->sEmailAddress}/{$this->sId}/{$this->sKey}/skip",
+			"unsubscribe-url" => "http://redonate.com/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
+			"methods" => $sMethods
+		));
+		
+		$sHtml = NewTemplater::Render("email/layout.html", $locale->strings, array(
+			"contents" => NewTemplater::Render("email/reminder.html", $locale->strings, array(
+				"campaign-name" => $this->sCampaign->sName,
+				"amount" => Currency::Format($this->sCurrency, $this->sAmount),
+				"skip-url" => "http://redonate.net/pay/{$this->sSubscription->sEmailAddress}/{$this->sId}/{$this->sKey}/skip",
+				"unsubscribe-url" => "http://redonate.com/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
+				"methods" => $sMethods
+			))
+		));
+		
+		return array("text" => $sText, "html" => $sHtml);
+	}
 }

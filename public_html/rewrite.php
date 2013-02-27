@@ -79,7 +79,8 @@ $router->routes = array(
 			'auth_error' => "modules/error/nosuchpayment.php"
 		),
 		"^/campaign/([a-zA-Z0-9-]+)$"				=> "modules/landing.php",
-		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> "modules/subscribe.php"
+		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> "modules/subscribe.php",
+		"^/test$"						=> "modules/test.php"
 	)
 );
 
