@@ -8,7 +8,7 @@
 </p>
 
 <p>
-	To make your donation for this month, use one of the following links:
+	To make your donation for this month, please use one of the following links:
 </p>
 
 <ul>
@@ -43,6 +43,6 @@
 <hr>
 
 <p>
-If you want to cancel your donation pledge, please visit
+If you want to cancel your donation pledge or change your settings, please visit
 <a href="{%?unsubscribe-url}">{%?unsubscribe-url}</a>.
 </p>

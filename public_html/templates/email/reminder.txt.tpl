@@ -3,7 +3,7 @@ Hi there,
 This is your donation pledge reminder for this month. You pledged to 
 donate {%?amount} every month to {%?campaign-name}.
 
-To make your donation for this month, use one of the following links:
+To make your donation for this month, please use one of the following links:
 {%foreach method in methods}
 * {%?method[name]}: {%?method[url]}{%/foreach}
 
@@ -22,5 +22,5 @@ this e-mail. We read every e-mail, and reply to them personally.
 
 -----
 
-If you want to cancel your donation pledge, please visit
-{%?unsubscribe-url}.
+If you want to cancel your donation pledge or change your settings, 
+please visit {%?unsubscribe-url}.
