@@ -515,6 +515,12 @@ table.payment-methods td.remove button
 	font-size: 15px;
 }
 
+.no-stats
+{
+	padding: 9px 12px;
+	color: gray;
+}
+
 /**************************************
  *             BAR GRAPH              *
  **************************************/

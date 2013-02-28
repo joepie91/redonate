@@ -54,6 +54,7 @@ if($sEventTotal !== 0)
 	$sUnsubscriptionPercentage = ($sCampaign->sPastMonthUnsubscriptions / $sEventTotal) * 100;
 	$sDonationPercentage = ($sCampaign->sPastMonthDonations / $sEventTotal) * 100;
 	$sNonDonationPercentage = ($sCampaign->sPastMonthNonDonations / $sEventTotal) * 100;
+	$sStatisticsAvailable = true;
 }
 else
 {
@@ -62,6 +63,7 @@ else
 	$sUnsubscriptionPercentage = 0;
 	$sDonationPercentage = 0;
 	$sNonDonationPercentage = 0;
+	$sStatisticsAvailable = false;
 }
 
 $sPageTitle = "Dashboard for {$sCampaign->sName}";
@@ -76,6 +78,7 @@ $sPageContents = NewTemplater::Render("campaign/dashboard", $locale->strings, ar
 	"donations-amount"		=> $sCampaign->sPastMonthDonations,
 	"donations-percentage"		=> $sDonationPercentage,
 	"nondonations-amount"		=> $sCampaign->sPastMonthNonDonations,
-	"nondonations-percentage"	=> $sNonDonationPercentage	
+	"nondonations-percentage"	=> $sNonDonationPercentage,
+	"statistics-available"		=> $sStatisticsAvailable
 ));
 

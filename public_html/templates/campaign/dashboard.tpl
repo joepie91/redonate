@@ -21,6 +21,9 @@
 		<div class="area not-donated" style="width: {%?nondonations-percentage}%;"></div>
 		<div class="area donated" style="width: {%?donations-percentage}%;"></div>
 		<div class="area subscribed" style="width: {%?subscriptions-percentage}%;"></div>
+		{%if statistics-available == false}
+			<div class="no-stats">No statistics available yet.</div>
+		{%/if}
 	</div>
 	
 	<div class="graph-legend">
