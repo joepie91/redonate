@@ -39,7 +39,7 @@ class Subscription extends CPHPDatabaseRecordClass
 			'IsConfirmed'		=> "Confirmed"
 		),
 		'campaign' => array(
-			'Campaign'		=> "Campaign"
+			'Campaign'		=> "CampaignId"
 		)
 	);
 	
