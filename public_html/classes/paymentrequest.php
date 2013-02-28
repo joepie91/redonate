@@ -18,6 +18,7 @@ class PaymentRequest extends CPHPDatabaseRecordClass
 	public $table_name = "payment_requests";
 	public $fill_query = "SELECT * FROM payment_requests WHERE `Id` = :Id";
 	public $verify_query = "SELECT * FROM payment_requests WHERE `Id` = :Id";
+	public $query_cache = 0;
 	
 	public $prototype = array(
 		'string' => array(
