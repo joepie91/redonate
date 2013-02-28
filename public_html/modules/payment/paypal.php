@@ -25,7 +25,7 @@ catch (NotFoundException $e)
 if($sPaymentRequest->sCurrency == "btc")
 {
 	$sCurrency = urlencode("USD");
-	$sAmount = Currency::Convert("usd", "btc", $sPaymentRequest->sAmount);
+	$sAmount = round(Currency::Convert("usd", "btc", $sPaymentRequest->sAmount), 2);
 }
 else
 {
