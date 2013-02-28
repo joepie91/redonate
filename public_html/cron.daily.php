@@ -65,6 +65,6 @@ foreach($sSubscriptions as $sSubscription)
 	send_mail($sSubscription->sEmailAddress, "Your monthly donation to {$sSubscription->sCampaign->sName}", $sEmail['text'], $sEmail['html']);
 	
 	/* Update the subscription to reflect the last sent e-mail */
-	$sSubscription->uLastEmail = time();
+	$sSubscription->uLastEmailDate = time();
 	$sSubscription->InsertIntoDatabase();
 }
