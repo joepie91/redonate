@@ -28,6 +28,8 @@ if($sCampaign->VerifyAdministratorAccess($_SESSION['user_id']) === false)
 	throw new RouterException("Not authorized to administrate this campaign.");
 }
 
+$sCampaign->UpdateStatistics();
+
 $sPaymentMethods = array();
 
 try
