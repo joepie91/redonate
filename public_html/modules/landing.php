@@ -55,7 +55,7 @@ $sLogEntry->InsertIntoDatabase();
 
 $sPageTitle = "Contribute to {$sCampaign->sName}";
 $sPageContents = NewTemplater::Render("landing", $locale->strings, array(
-	"can-donate-once" => true, 
+	"can-donate-once" => $sCampaign->sAllowOneTime, 
 	"project-name" => $sCampaign->sName, 
 	"urlname" => $sCampaign->sUrlName,
 	"methods" => $sPaymentMethods
