@@ -1,0 +1,1 @@
+CVM is a free and open-source VPS panel currently in development, with a focus on clean and secure code. Support is currently exclusively for OpenVZ, but KVM and Xen support are planned in the near future. CVM features a clean and simple user interface, a reliable and organized codebase, unobfuscated code, the possibility to use your own themes, and much much more!
