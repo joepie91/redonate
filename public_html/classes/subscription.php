@@ -56,4 +56,36 @@ class Subscription extends CPHPDatabaseRecordClass
 				array(':EmailAddress' => $email, ':SettingsKey' => $key), $expiry, true);
 		}
 	}
+	
+	public function SendPaymentRequest()
+	{
+		/* Create a payment request */
+		$sPaymentRequest = new PaymentRequest(0);
+		$sPaymentRequest->uCurrency = $this->uCurrency;
+		$sPaymentRequest->uAmount = $this->uAmount;
+		$sPaymentRequest->uCampaignId = $this->uCampaignId;
+		$sPaymentRequest->uSubscriptionId = $this->sId;
+		$sPaymentRequest->uKey = random_string(16);
+		$sPaymentRequest->uPaid = false;
+		$sPaymentRequest->uDate = time();
+		$sPaymentRequest->InsertIntoDatabase();
+		
+		/* Log an event */
+		$sLogEntry = new LogEntry(0);
+		$sLogEntry->uType = LogEntry::DONATION_ASKED;
+		$sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];
+		$sLogEntry->uData = json_encode(array("payment_request" => $sPaymentRequest->sId));
+		$sLogEntry->uCampaignId = $sPaymentRequest->sCampaign->sId;
+		$sLogEntry->uDate = time();
+		$sLogEntry->uSessionId = session_id();
+		$sLogEntry->InsertIntoDatabase();
+		
+		/* Send an e-mail */
+		$sEmail = $sPaymentRequest->GenerateEmail();
+		send_mail($this->sEmailAddress, "Your monthly donation to {$this->sCampaign->sName}", $sEmail['text'], $sEmail['html']);
+		
+		/* Update the subscription to reflect the last sent e-mail */
+		$this->uLastEmailDate = time();
+		$this->InsertIntoDatabase();
+	}
 }

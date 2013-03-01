@@ -43,34 +43,7 @@ catch (NotFoundException $e)
 
 foreach($sSubscriptions as $sSubscription)
 {
-	/* Create a payment request */
-	$sPaymentRequest = new PaymentRequest(0);
-	$sPaymentRequest->uCurrency = $sSubscription->uCurrency;
-	$sPaymentRequest->uAmount = $sSubscription->uAmount;
-	$sPaymentRequest->uCampaignId = $sSubscription->uCampaignId;
-	$sPaymentRequest->uSubscriptionId = $sSubscription->sId;
-	$sPaymentRequest->uKey = random_string(16);
-	$sPaymentRequest->uPaid = false;
-	$sPaymentRequest->uDate = time();
-	$sPaymentRequest->InsertIntoDatabase();
-	
-	/* Log an event */
-	$sLogEntry = new LogEntry(0);
-	$sLogEntry->uType = LogEntry::DONATION_ASKED;
-	$sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];
-	$sLogEntry->uData = json_encode(array("payment_request" => $sPaymentRequest->sId));
-	$sLogEntry->uCampaignId = $sPaymentRequest->sCampaign->sId;
-	$sLogEntry->uDate = time();
-	$sLogEntry->uSessionId = session_id();
-	$sLogEntry->InsertIntoDatabase();
-	
-	/* Send an e-mail */
-	$sEmail = $sPaymentRequest->GenerateEmail();
-	send_mail($sSubscription->sEmailAddress, "Your monthly donation to {$sSubscription->sCampaign->sName}", $sEmail['text'], $sEmail['html']);
-	
-	/* Update the subscription to reflect the last sent e-mail */
-	$sSubscription->uLastEmailDate = time();
-	$sSubscription->InsertIntoDatabase();
+	$sSubscription->SendPaymentRequest();
 }
 
 /* Now, we'll log a historical statistics snapshot for every campaign. */
