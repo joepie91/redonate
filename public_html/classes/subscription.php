@@ -67,7 +67,7 @@ class Subscription extends CPHPDatabaseRecordClass
 		$sPaymentRequest->uSubscriptionId = $this->sId;
 		$sPaymentRequest->uKey = random_string(16);
 		$sPaymentRequest->uPaid = false;
-		$sPaymentRequest->uDate = time();
+		$sPaymentRequest->uIssueDate = time();
 		$sPaymentRequest->InsertIntoDatabase();
 		
 		/* Log an event */
