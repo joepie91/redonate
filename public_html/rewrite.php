@@ -63,6 +63,11 @@ $router->routes = array(
 			'authenticator' => "authenticators/payment.php",
 			'auth_error' => "modules/error/nosuchpayment.php"
 		),
+		"^/pay/(.+)/([0-9]+)/([a-zA-Z0-9]+)/skip$"		=> array(
+			'target' => "modules/payment/notify_skip.php",
+			'authenticator' => "authenticators/payment.php",
+			'auth_error' => "modules/error/nosuchpayment.php"
+		),
 		"^/pay/(.+)/([0-9]+)/([a-zA-Z0-9]+)/paypal$"		=> array(
 			'target' => "modules/payment/paypal.php",
 			'authenticator' => "authenticators/payment.php",
