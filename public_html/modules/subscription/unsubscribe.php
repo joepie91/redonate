@@ -22,7 +22,7 @@ if(!empty($_POST['submit']))
 	$sLogEntry->uType = LogEntry::UNSUBSCRIPTION;
 	$sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];
 	$sLogEntry->uData = json_encode(array("email" => $sSubscription->sEmailAddress));
-	$sLogEntry->uCampaignId = $sCampaign->sId;
+	$sLogEntry->uCampaignId = $sSubscription->sCampaign->sId;
 	$sLogEntry->uDate = time();
 	$sLogEntry->uSessionId = session_id();
 	$sLogEntry->InsertIntoDatabase();
