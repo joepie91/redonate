@@ -30,7 +30,9 @@ try
 	$sLogEntry->uSessionId = session_id();
 	$sLogEntry->InsertIntoDatabase();
 	
-	flash_notice("Your subscription was successfully confirmed. Welcome on board!");
+	$sSubscription->SendPaymentRequest();
+	
+	flash_notice("Your subscription was successfully confirmed. You'll find your first donation request in your inbox - we've just e-mailed it to you. Welcome on board!");
 	redirect("/manage/{$sSubscription->sEmailAddress}/{$sSubscription->sSettingsKey}");
 }
 catch (NotFoundException $e)
