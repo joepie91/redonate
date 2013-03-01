@@ -32,6 +32,8 @@ class Campaign extends CPHPDatabaseRecordClass
 			'MonthlyProjection'		=> "ProjectedMonthlyDonations",
 			'PastMonthDonations'		=> "PastMonthDonations",
 			'PastMonthNonDonations'		=> "PastMonthNonDonations",
+			'PastMonthAmount'		=> "PastMonthAmount",
+			'PastMonthNonAmount'		=> "PastMonthNonAmount",
 			'PastMonthSubscriptions'	=> "PastMonthSubscriptions",
 			'PastMonthUnsubscriptions'	=> "PastMonthUnsubscriptions"
 		),
@@ -112,6 +114,26 @@ class Campaign extends CPHPDatabaseRecordClass
 		}
 		
 		return $sPaymentMethod;
+	}
+	
+	public function CreateStatisticsEntry()
+	{
+		$sStatisticsEntry = new StatisticsEntry(0);
+		$sStatisticsEntry->uDonationRate = $this->sDonationRate;
+		$sStatisticsEntry->uSubscriberCount = $this->sSubscriberCount;
+		$sStatisticsEntry->uTotalMonthlyDonations = $this->sMonthlyTotal;
+		$sStatisticsEntry->uProjectedMonthlyDonations = $this->sMonthlyProjection;
+		$sStatisticsEntry->uPastMonthDonations = $this->sPastMonthDonations;
+		$sStatisticsEntry->uPastMonthNonDonations = $this->sPastMonthNonDonations;
+		$sStatisticsEntry->uPastMonthAmount = $this->sPastMonthAmount;
+		$sStatisticsEntry->uPastMonthNonAmount = $this->sPastMonthNonAmount;
+		$sStatisticsEntry->uPastMonthSubscriptions = $this->sPastMonthSubscriptions;
+		$sStatisticsEntry->uPastMonthUnsubscriptions = $this->sPastMonthUnsubscriptions;
+		$sStatisticsEntry->uHaveData = $this->sHaveData;
+		$sStatisticsEntry->uAllowOneTime = $this->sAllowOneTime;
+		$sStatisticsEntry->uDate = time();
+		$sStatisticsEntry->uCampaignId = $this->sId;
+		return $sStatisticsEntry;
 	}
 	
 	public function UpdateStatistics()

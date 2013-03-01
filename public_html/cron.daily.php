@@ -68,3 +68,12 @@ foreach($sSubscriptions as $sSubscription)
 	$sSubscription->uLastEmailDate = time();
 	$sSubscription->InsertIntoDatabase();
 }
+
+/* Now, we'll log a historical statistics snapshot for every campaign. */
+
+foreach(Campaign::CreateFromQuery("SELECT * FROM campaigns") as $sCampaign)
+{
+	$sCampaign->UpdateStatistics();
+	$sStatisticsEntry = $sCampaign->CreateStatisticsEntry();
+	$sStatisticsEntry->InsertIntoDatabase();
+}
