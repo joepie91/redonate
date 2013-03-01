@@ -462,16 +462,20 @@ img.logo.thumb
 	height: 20px;
 }
 
-div.logo
+div.logo, span.logo
 {
 	font-weight: bold;
 	font-style: italic;
 	color: #1F2E0B;
-	display: inline-block;
 	font-size: 35px;
 }
 
-div.logo.thumb
+div.logo
+{
+	display: inline-block;
+}
+
+div.logo.thumb, span.logo.thumb
 {
 	font-size: 18px;
 }
@@ -768,6 +772,27 @@ p.pledge-button
 .padding
 {
 	padding: 16px 20px;
+}
+
+.donate-once
+{
+	border: 1px solid gray;
+	border-radius: 7px;
+	float: left;
+	height: 45px;
+	padding: 8px 10px;
+	display: block;
+	margin-right: 4px;
+}
+
+.donate-once:hover
+{
+	background-color: #F3F8EB;
+}
+
+.donate-once img
+{
+	margin: 8px 10px;
 }
 
 /**************************************

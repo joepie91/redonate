@@ -1,5 +1,13 @@
 <h2>Contribute to {%?project-name} monthly, no automatic charges.</h2>
 
+{%if isempty|notices == false}
+	{%foreach notice in notices}
+		<div class="notices">
+			{%?notice}
+		</div>
+	{%/foreach}
+{%/if}
+
 <div class="details">
 	<h3>How does it work?</h3>
 	<p class="leader">
@@ -56,11 +64,16 @@
 	</form>
 	
 	{%if can-donate-once == true}
-		<h3 class="section">One-off donation</h3>
-		<p>
-			<img src="/static/images/paypal.png">
-			<img src="/static/images/bitcoin.png" style="margin-left: 16px;">
-		</p>
+		<h3 class="section" style="margin-bottom: 16px;">One-off donation</h3>
+		{%foreach method in methods}
+			<a class="no-style donate-once" href="/campaign/{%?urlname}/donate/{%?method[id]}">
+				{%if isempty|method[image] == false}
+					<img src="{%?method[image]}" alt="{%?method[text]}">
+				{%else}
+					<span class="logo">{%?method[text]}</span>
+				{%/if}
+			</a>
+		{%/foreach}
 	{%/if}
 </div>
 <div class="clear"></div>

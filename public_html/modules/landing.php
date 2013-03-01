@@ -26,6 +26,24 @@ catch (NotFoundException $e)
 
 $sCampaign->UpdateStatistics();
 
+$sPaymentMethods = array();
+
+try
+{
+	foreach(PaymentMethod::CreateFromQuery("SELECT * FROM payment_methods WHERE `CampaignId` = :CampaignId", 
+		array(":CampaignId" => $sCampaign->sId)) as $sPaymentMethod)
+	{
+		$sNewMethod = $sPaymentMethod->GetLogo();
+		$sNewMethod['address'] = $sPaymentMethod->sAddress;
+		$sNewMethod['id'] = $sPaymentMethod->sId;
+		$sPaymentMethods[] = $sNewMethod;
+	}
+}
+catch (NotFoundException $e)
+{
+	/* No payment methods...? */
+}
+
 $sLogEntry = new LogEntry(0);
 $sLogEntry->uType = LogEntry::PAGELOAD;
 $sLogEntry->uIp = $_SERVER['REMOTE_ADDR'];
@@ -39,5 +57,6 @@ $sPageTitle = "Contribute to {$sCampaign->sName}";
 $sPageContents = NewTemplater::Render("landing", $locale->strings, array(
 	"can-donate-once" => true, 
 	"project-name" => $sCampaign->sName, 
-	"urlname" => $sCampaign->sUrlName
+	"urlname" => $sCampaign->sUrlName,
+	"methods" => $sPaymentMethods
 ));

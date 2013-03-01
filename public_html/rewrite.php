@@ -105,6 +105,8 @@ $router->routes = array(
 		),
 		"^/campaign/([a-zA-Z0-9-]+)$"				=> "modules/landing.php",
 		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> "modules/subscribe.php",
+		"^/campaign/([a-zA-Z0-9-]+)/donate/([0-9]+)$"		=> "modules/donate.php",
+		"^/thanks/([a-zA-Z0-9-]+)$"				=> "modules/thanks.php",
 		"^/test$"						=> "modules/test.php"
 	)
 );
