@@ -78,6 +78,21 @@ $router->routes = array(
 			'authenticator' => "authenticators/payment.php",
 			'auth_error' => "modules/error/nosuchpayment.php"
 		),
+		"^/manage/(.+?)/([a-zA-Z0-9]+)/change-amount$"		=> array(
+			'target' => "modules/subscription/change_amount.php",
+			'authenticator' => "authenticators/subscription.php",
+			'auth_error' => "modules/error/nosuchsubscription.php"
+		),
+		"^/manage/(.+?)/([a-zA-Z0-9]+)/unsubscribe$"		=> array(
+			'target' => "modules/subscription/unsubscribe.php",
+			'authenticator' => "authenticators/subscription.php",
+			'auth_error' => "modules/error/nosuchsubscription.php"
+		),
+		"^/manage/(.+?)/([a-zA-Z0-9]+)[.]?$"			=> array(
+			'target' => "modules/subscription/manage.php",
+			'authenticator' => "authenticators/subscription.php",
+			'auth_error' => "modules/error/nosuchsubscription.php"
+		),
 		"^/campaign/([a-zA-Z0-9-]+)$"				=> "modules/landing.php",
 		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> "modules/subscribe.php",
 		"^/test$"						=> "modules/test.php"

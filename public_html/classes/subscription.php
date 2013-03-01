@@ -36,15 +36,24 @@ class Subscription extends CPHPDatabaseRecordClass
 			'LastEmailDate'		=> "LastEmail"
 		),
 		'boolean' => array(
-			'IsConfirmed'		=> "Confirmed"
+			'IsConfirmed'		=> "Confirmed",
+			'IsActive'		=> "Active"
 		),
 		'campaign' => array(
 			'Campaign'		=> "CampaignId"
 		)
 	);
 	
-	public static function FindByEmail($email)
+	public static function FindByEmail($email, $key = "", $expiry = 0)
 	{
-		return self::CreateFromQuery("SELECT * FROM subscriptions WHERE `EmailAddress` = :EmailAddress", array(':EmailAddress' => $email), 0);
+		if(empty($key))
+		{
+			return self::CreateFromQuery("SELECT * FROM subscriptions WHERE `EmailAddress` = :EmailAddress", array(':EmailAddress' => $email), $expiry);
+		}
+		else
+		{
+			return self::CreateFromQuery("SELECT * FROM subscriptions WHERE `EmailAddress` = :EmailAddress AND `SettingsKey` = :SettingsKey", 
+				array(':EmailAddress' => $email, ':SettingsKey' => $key), $expiry, true);
+		}
 	}
 }

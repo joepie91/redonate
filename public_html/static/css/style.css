@@ -409,6 +409,12 @@ td.meta
 	font-style: italic;
 }
 
+a.no-style
+{
+	color: inherit;
+	text-decoration: inherit;
+}
+
 /**************************************
  *            NOTIFICATIONS           *
  **************************************/

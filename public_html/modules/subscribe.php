@@ -50,7 +50,7 @@ try
 	
 	foreach(Subscription::FindByEmail($_POST['email']) as $sSubscription)
 	{
-		if($sSubscription->sCampaignId == $sCampaign->sId)
+		if($sSubscription->sCampaignId == $sCampaign->sId && $sSubscription->sIsActive == true)
 		{
 			$exists = true;
 		}
