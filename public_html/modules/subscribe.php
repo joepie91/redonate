@@ -53,6 +53,7 @@ try
 		if($sSubscription->sCampaignId == $sCampaign->sId && $sSubscription->sIsActive == true)
 		{
 			$exists = true;
+			$sExistingSubscription = $sSubscription;
 		}
 	}
 	
@@ -65,7 +66,23 @@ catch (NotFoundException $e)
 if($exists)
 {
 	$sPageContents = NewTemplater::Render("subscription/change", $locale->strings, array());
-	/* TODO: Change request */
+	
+	$sChangeRequest = new ChangeRequest(0);
+	$sChangeRequest->uKey = random_string(16);
+	$sChangeRequest->uOldCurrency = $sExistingSubscription->sCurrency;
+	$sChangeRequest->uOldAmount = $sExistingSubscription->sAmount;
+	$sChangeRequest->uNewCurrency = $_POST['currency'];
+	$sChangeRequest->uNewAmount = str_replace(",", ".", $_POST['amount']);
+	$sChangeRequest->uSubscriptionId = $sExistingSubscription->sId;
+	$sChangeRequest->uCampaignId = $sExistingSubscription->sCampaign->sId;
+	$sChangeRequest->uIsConfirmed = false;
+	$sChangeRequest->uDate = time();
+	$sChangeRequest->InsertIntoDatabase();
+	
+	$sEmail = $sChangeRequest->GenerateEmail();
+	
+	send_mail($sExistingSubscription->sEmailAddress, "Changes to your pledge to {$sExistingSubscription->sCampaign->sName}", $sEmail['text'], $sEmail['html']);
+	
 	return;
 }
 

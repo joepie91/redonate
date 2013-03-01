@@ -78,6 +78,11 @@ $router->routes = array(
 			'authenticator' => "authenticators/payment.php",
 			'auth_error' => "modules/error/nosuchpayment.php"
 		),
+		"^/change/(.+)/([0-9]+)/([a-zA-Z0-9]+)$"	=> array(
+			'target' => "modules/change.php",
+			'authenticator' => "authenticators/change.php",
+			'auth_error' => "modules/error/nosuchchange.php"
+		),
 		"^/manage/(.+?)/([a-zA-Z0-9]+)/change-amount$"		=> array(
 			'target' => "modules/subscription/change_amount.php",
 			'authenticator' => "authenticators/subscription.php",
