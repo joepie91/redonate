@@ -16,8 +16,8 @@ require("includes/base.php");
 
 if(php_sapi_name() !== "cli")
 {
-	//http_status_code(403);
-	//die();
+	http_status_code(403);
+	die();
 }
 
 /* This cronjob will send out donation reminder e-mails for every user
