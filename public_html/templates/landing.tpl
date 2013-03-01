@@ -74,6 +74,17 @@
 				{%/if}
 			</a>
 		{%/foreach}
+	{%else}
+		<div class="accepted-methods">
+			<h4>Accepted here:</h4>
+			{%foreach method in methods}
+				{%if isempty|method[image] == false}
+					<img class="logo thumb" src="{%?method[image]}" alt="{%?method[text]}">
+				{%else}
+					<div class="logo thumb">{%?method[text]}</div>
+				{%/if}
+			{%/foreach}
+		</div>
 	{%/if}
 </div>
 <div class="clear"></div>

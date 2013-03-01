@@ -795,6 +795,19 @@ p.pledge-button
 	margin: 8px 10px;
 }
 
+.accepted-methods
+{
+	margin-top: 32px;
+}
+
+.accepted-methods h4
+{
+	color: gray;
+	font-size: 16px;
+	margin: 0px;
+	margin-bottom: 4px;
+}
+
 /**************************************
  *          COMPLEX HEADERS           *
  **************************************/
