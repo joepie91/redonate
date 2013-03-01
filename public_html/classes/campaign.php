@@ -143,7 +143,7 @@ class Campaign extends CPHPDatabaseRecordClass
 		if(!empty($cphp_config->debugmode) || $this->sLastStatisticsUpdate < time() - (60 * 5))
 		{	
 			/* Update subscriber count */
-			if($result = $database->CachedQuery("SELECT COUNT(*) FROM subscriptions WHERE `CampaignId` = :CampaignId AND `Confirmed` = 1", array(":CampaignId" => $this->sId)))
+			if($result = $database->CachedQuery("SELECT COUNT(*) FROM subscriptions WHERE `CampaignId` = :CampaignId AND `Confirmed` = 1 AND `Active` = 1", array(":CampaignId" => $this->sId)))
 			{
 				$this->uSubscriberCount = $result->data[0]["COUNT(*)"];
 			}
@@ -151,7 +151,7 @@ class Campaign extends CPHPDatabaseRecordClass
 			/* Update total monthly donations */
 			try
 			{
-				$sSubscriptions = Subscription::CreateFromQuery("SELECT * FROM subscriptions WHERE `CampaignId` = :CampaignId AND `Confirmed` = 1", array(":CampaignId" => $this->sId));
+				$sSubscriptions = Subscription::CreateFromQuery("SELECT * FROM subscriptions WHERE `CampaignId` = :CampaignId AND `Confirmed` = 1 AND `Active` = 1", array(":CampaignId" => $this->sId));
 				$sTotalDonations = 0;
 				
 				foreach($sSubscriptions as $sSubscription)

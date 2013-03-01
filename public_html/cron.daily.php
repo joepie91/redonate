@@ -34,7 +34,7 @@ Currency::UpdateRates();
 
 try
 {
-	$sSubscriptions = Subscription::CreateFromQuery("SELECT * FROM subscriptions WHERE `Confirmed` = 1 AND `LastEmail` IS NULL OR `LastEmail` < DATE_SUB(NOW(), INTERVAL 1 MONTH)");
+	$sSubscriptions = Subscription::CreateFromQuery("SELECT * FROM subscriptions WHERE `Confirmed` = 1 AND `Active` = 1 AND `LastEmail` IS NULL OR `LastEmail` < DATE_SUB(NOW(), INTERVAL 1 MONTH)");
 }
 catch (NotFoundException $e)
 {

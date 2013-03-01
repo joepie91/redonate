@@ -85,7 +85,8 @@ $sSubscription->uSettingsKey = random_string(25);
 $sSubscription->uCurrency = $_POST['currency'];
 $sSubscription->uAmount = str_replace(",", ".", $_POST['amount']);
 $sSubscription->uSubscriptionDate = time();
-$sSubscription->uConfirmed = False;
+$sSubscription->uIsConfirmed = false;
+$sSubscription->uIsActive = false;
 $sSubscription->uCampaignId = $sCampaign->sId;
 $sSubscription->InsertIntoDatabase();
 
