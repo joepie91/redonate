@@ -18,6 +18,7 @@ try
 	$sSubscription = Subscription::CreateFromQuery("SELECT * FROM subscriptions WHERE `EmailAddress` = :EmailAddress AND `ConfirmationKey` = :ConfirmationKey AND `Confirmed` = 0",
 		array(":EmailAddress" => $router->uParameters[1], ":ConfirmationKey" => $router->uParameters[2]), 0, true);
 	$sSubscription->uIsConfirmed = true;
+	$sSubscription->uIsActive = true;
 	$sSubscription->InsertIntoDatabase();
 	
 	$sLogEntry = new LogEntry(0);
