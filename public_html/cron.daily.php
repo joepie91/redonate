@@ -26,7 +26,11 @@ if(php_sapi_name() !== "cli")
  * historical statistics logs.
  */
 
-/* First, we'll start out sending reminder e-mails. */
+/* First, we will update the exchange rates. */
+
+Currency::UpdateRates();
+
+/* Then, we'll start out sending reminder e-mails. */
 
 try
 {
