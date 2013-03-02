@@ -1,7 +1,6 @@
 {
 	"database": {
 		"driver": 	"mysql",
-		"pdo":		true,
 		"hostname": 	"localhost",
 		"username": 	"root",
 		"password": 	"",
@@ -21,10 +20,29 @@
 	},
 	"class_map": {
 		"user": "User",
-		"campaign": "Campaign"
+		"campaign": "Campaign",
+		"subscription": "Subscription",
+		"paymentrequest": "PaymentRequest",
+		"exchangerate": "ExchangeRate",
+		"changerequest": "ChangeRequest",
+		"paymentmethod": "PaymentMethod",
+		"logentry": "LogEntry",
+		"statisticsentry": "StatisticsEntry"
 	},
 	"components": [
 		"router",
 		"errorhandler"
-	]
+	],
+	"openexchangerates": {
+		"app_id": ""
+	},
+	"smtp": {
+		"from": "admin@redonate.net",
+		"host": "localhost",
+		"port": 25,
+		"username": "root",
+		"password": ""
+	},
+	"debugmode": false,
+	"salt": "abcdef"
 }
