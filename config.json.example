@@ -38,6 +38,7 @@
 	},
 	"smtp": {
 		"from": "admin@redonate.net",
+		"from_name": "ReDonate",
 		"host": "localhost",
 		"port": 25,
 		"username": "root",
