@@ -32,7 +32,7 @@ function autoload_redonate($class_name)
 	}
 }
 
-spl_autoload_register(autoload_redonate);
+spl_autoload_register('autoload_redonate');
 
 /* Set global templater variables */
 NewTemplater::SetGlobalVariable("logged-in", !empty($_SESSION['user_id']));
@@ -101,6 +101,14 @@ function flash_notice($message)
 	$_SESSION['notices'][] = $message;
 }
 
+if($cphp_config->debugmode === false)
+{
+	$smtp = Swift_SmtpTransport::newInstance($cphp_config->smtp->host, $cphp_config->smtp->port)
+		->setUsername($cphp_config->smtp->user)->setPassword($cphp_config->smtp->pass);
+		
+	$mail_transport = Swift_Mailer::newInstance($smtp);
+}
+
 function send_mail($to, $subject, $text, $html)
 {
 	global $mail_transport, $cphp_config;
@@ -111,21 +119,26 @@ function send_mail($to, $subject, $text, $html)
 	$sMessage->setBody($text);
 	$sMessage->addPart($html, "text/html");
 	
-	echo("<div style=\"border: 1px solid black; padding: 8px; background-color: white; margin: 8px; margin-bottom: 24px;\">
-		<div style=\"font-size: 14px;\">
-			<strong>From:</strong> {$cphp_config->smtp->from}<br>
-			<strong>To:</strong> {$to}<br>
-			<strong>Subject:</strong> {$subject}
-		</div>
-		<hr>
-		<pre class=\"debug\">{$text}</pre>
-		<hr>
-		<div>
-			{$html}
-		</div>
-	</div>");
-	
-	//$mail_transport->send($sMessage);
+	if($cphp_config->debugmode)
+	{
+		echo("<div style=\"border: 1px solid black; padding: 8px; background-color: white; margin: 8px; margin-bottom: 24px;\">
+			<div style=\"font-size: 14px;\">
+				<strong>From:</strong> {$cphp_config->smtp->from}<br>
+				<strong>To:</strong> {$to}<br>
+				<strong>Subject:</strong> {$subject}
+			</div>
+			<hr>
+			<pre class=\"debug\">{$text}</pre>
+			<hr>
+			<div>
+				{$html}
+			</div>
+		</div>");
+	}
+	else
+	{	
+		$mail_transport->send($sMessage);
+	}
 }
 
 function generate_urlname($input, $iteration)
