@@ -104,7 +104,7 @@ function flash_notice($message)
 if($cphp_config->debugmode === false)
 {
 	$smtp = Swift_SmtpTransport::newInstance($cphp_config->smtp->host, $cphp_config->smtp->port)
-		->setUsername($cphp_config->smtp->user)->setPassword($cphp_config->smtp->pass);
+		->setUsername($cphp_config->smtp->username)->setPassword($cphp_config->smtp->password);
 		
 	$mail_transport = Swift_Mailer::newInstance($smtp);
 }
