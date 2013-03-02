@@ -783,6 +783,7 @@ p.pledge-button
 	padding: 8px 10px;
 	display: block;
 	margin-right: 4px;
+	margin-bottom: 4px;
 }
 
 .donate-once:hover
