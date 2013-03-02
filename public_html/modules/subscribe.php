@@ -47,6 +47,25 @@ if(empty($_POST['amount']) || preg_match("([0-9]*[.,][0-9]+|[0-9]+)", $_POST['am
 try
 {
 	$exists = false;
+	Subscription::CreateFromQuery("SELECT * FROM subscriptions WHERE `EmailAddress` = :EmailAddress AND `Confirmed` = 0",
+		array(":EmailAddress" => $_POST['email']));
+	$exists = true;
+}
+catch (NotFoundException $e)
+{
+	$exists = false;
+}
+
+if($exists)
+{
+	flash_error("That e-mail address has subscribed before and is currently awaiting confirmation.");
+	require("modules/landing.php");
+	return;
+}
+
+try
+{
+	$exists = false;
 	
 	foreach(Subscription::FindByEmail($_POST['email']) as $sSubscription)
 	{
