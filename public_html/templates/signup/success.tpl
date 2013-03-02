@@ -8,3 +8,9 @@
 <p>
 	Once you click that link, you'll be automatically logged in, and you can start creating a campaign right away!
 </p>
+
+<p>
+	<strong>Haven't received an e-mail?</strong> Check your spam folder to see if it ended up there, and please
+	mark it as 'not spam' if it did. If you still can't find your e-mail, send us an e-mail at 
+	<a href="mailto:support@redonate.net">support@redonate.net</a>.
+</p>
