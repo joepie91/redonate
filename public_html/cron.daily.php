@@ -48,9 +48,23 @@ foreach($sSubscriptions as $sSubscription)
 
 /* Now, we'll log a historical statistics snapshot for every campaign. */
 
-foreach(Campaign::CreateFromQuery("SELECT * FROM campaigns") as $sCampaign)
+try
 {
-	$sCampaign->UpdateStatistics();
-	$sStatisticsEntry = $sCampaign->CreateStatisticsEntry();
-	$sStatisticsEntry->InsertIntoDatabase();
+	$sCampaigns = Campaign::CreateFromQuery("SELECT * FROM campaigns");
+	$found = true;
+}
+catch (NotFoundException $e)
+{
+	/* No campaigns are in the database yet. */
+	$found = false;
+}
+
+if($found)
+{
+	foreach($sCampaigns as $sCampaign)
+	{
+		$sCampaign->UpdateStatistics();
+		$sStatisticsEntry = $sCampaign->CreateStatisticsEntry();
+		$sStatisticsEntry->InsertIntoDatabase();
+	}
 }
