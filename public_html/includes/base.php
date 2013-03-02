@@ -115,7 +115,9 @@ function send_mail($to, $subject, $text, $html)
 	$sMessage = Swift_Message::newInstance();
 	$sMessage->setSubject($subject);
 	$sMessage->setTo($to);
-	$sMessage->setFrom(array($cphp_config->smtp->from, $cphp_config->smtp->from_name));
+	$from = array();
+	$from[$cphp_config->smtp->from] = $cphp_config->smtp->from_name;
+	$sMessage->setFrom($from);
 	$sMessage->setBody($text);
 	$sMessage->addPart($html, "text/html");
 	
