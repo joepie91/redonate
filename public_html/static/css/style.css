@@ -851,3 +851,43 @@ a.button:hover
 	border: 1px solid #587532;
 	background-color: #F1FFD0;
 }
+
+/**************************************
+ *              FEATURED              *
+ **************************************/
+ 
+.featured
+{
+	border-top: 1px solid #838383;
+	padding-top: 12px;
+}
+
+.featured .feature
+{
+	float: left;
+	background-color: black;
+	border: 1px solid silver;
+	margin: 3px;
+}
+
+.featured .feature img
+{
+	width: 145px;
+	display: block;
+}
+
+.featured .feature a.go
+{
+	display: block;
+	background-color: #699336;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 6px 7px;
+}
+
+.featured .feature a.go:hover
+{
+	background-color: #4FA22A;
+}

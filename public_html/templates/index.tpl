@@ -66,4 +66,44 @@
 		</div>
 	</div>
 	<div class="clear"></div>
+	<div class="featured">
+		<h3 class="spaced">Who uses ReDonate?</h3>
+		<div class="feature">
+			<a href="http://cvm.cryto.net/">
+				<img src="/static/images/promo/cvm.png">
+			</a>
+			<a href="/campaign/cvm" class="go">Go to campaign &raquo;</a>
+		</div>
+		<div class="feature">
+			<a href="http://tahoe-lafs.org/">
+				<img src="/static/images/promo/tahoe.png">
+			</a>
+			<a href="/campaign/tahoe-lafs" class="go">Go to campaign &raquo;</a>
+		</div>
+		<div class="feature">
+			<a href="http://193.150.121.68:81/projects/fux/wiki">
+				<img src="/static/images/promo/i2pfux.png">
+			</a>
+			<a href="/campaign/i2pfux" class="go">Go to campaign &raquo;</a>
+		</div>
+		<div class="feature">
+			<a href="https://github.com/BlueVM/Neon">
+				<img src="/static/images/promo/neon.png">
+			</a>
+			<a href="/campaign/neon-nginx-website-control-panel" class="go">Go to campaign &raquo;</a>
+		</div>
+		<div class="feature">
+			<a href="http://anonyops.com/">
+				<img src="/static/images/promo/anonyops.png">
+			</a>
+			<a href="/campaign/anonyops" class="go">Go to campaign &raquo;</a>
+		</div>
+		<div class="feature">
+			<a href="http://id3nt.i2p.in/">
+				<img src="/static/images/promo/id3nt.png">
+			</a>
+			<a href="/campaign/id3nt" class="go">Go to campaign &raquo;</a>
+		</div>
+		<div class="clear"></div>
+	</div>
 </div>
