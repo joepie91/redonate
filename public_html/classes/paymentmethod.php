@@ -95,7 +95,7 @@ class PaymentMethod extends CPHPDatabaseRecordClass
 		switch($type)
 		{
 			case PaymentMethod::PAYPAL:
-				return filter_var($address, FILTER_VALIDATE_EMAIL);
+				return filter_var($address, FILTER_VALIDATE_EMAIL) || preg_match("/^[A-Z0-9]{13}$/", $address);
 			case PaymentMethod::BITCOIN:
 				return (preg_match("/^[a-zA-Z1-9]{27,35}$/", $address) == true);
 			default:

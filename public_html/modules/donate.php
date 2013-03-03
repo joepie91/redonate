@@ -82,7 +82,19 @@ if(!empty($_POST['submit']))
 				$sQuotedName = urlencode("{$sCampaign->sName} (via ReDonate.net)");
 				$sQuotedNumber = urlencode("0");
 				$sQuotedReturnUrl = urlencode("http://redonate.net/thanks/{$sCampaign->sUrlName}");
-				redirect("https://www.paypal.com/cgi-bin/webscr?business={$sQuotedRecipient}&cmd=_donations&item_name={$sQuotedName}&item_number={$sQuotedNumber}&currency_code={$sCurrency}&amount={$sAmount}&return={$sQuotedReturnUrl}");
+				
+				if(filter_var($sPaymentMethod->sAddress, FILTER_VALIDATE_EMAIL))
+				{
+					$target = "https://www.paypal.com/cgi-bin/webscr?business={$sQuotedRecipient}&cmd=_donations&item_name={$sQuotedName}&item_number={$sQuotedNumber}&currency_code={$sCurrency}&amount={$sAmount}&return={$sQuotedReturnUrl}";
+				}
+				else
+				{
+					/* This is most likely a hosted button ID. We can only provide limited information in this case - we can really only set the item description. 
+					 * Not sure if setting the return URL will work, but we might as well try. */
+					$target = "https://www.paypal.com/cgi-bin/webscr?hosted_button_id={$sQuotedRecipient}&cmd=_s-xclick&item_name={$sQuotedName}&return={$sQuotedReturnUrl}";
+				}
+
+				redirect($target);
 				return;
 			case PaymentMethod::BITCOIN:
 				if($sPaymentRequest->sCurrency != "btc")
