@@ -19,6 +19,7 @@
 				{%?contents}
 			</div>
 			<div class="footer">
+				<span class="contact">Questions or problems? <a href="mailto:support@redonate.net" class="no-float">support@redonate.net</a></span>
 				<a href="/">Home</a>
 				<a href="/about">About</a>
 				{%if logged-in == false}
