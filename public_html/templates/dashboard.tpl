@@ -25,7 +25,11 @@
 	{%else}
 		{%foreach campaign in campaigns}
 			<tr class="clickable" data-url="/dashboard/{%?campaign[urlname]}">
-				<td class="name">{%?campaign[name]}</td>
+				<td class="name">
+					<a href="/dashboard/{%?campaign[urlname]}" class="no-style">
+						{%?campaign[name]}
+					</a>
+				</td>
 				<td>
 					{%if campaign[one-off] == false}
 						Recurring
