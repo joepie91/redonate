@@ -53,4 +53,8 @@ $(function(){
 			affected.hide();
 		}
 	});
+	
+	$('button[type=submit]').mousedown(function(){
+		$(this).closest('form').submit();
+	});
 });
