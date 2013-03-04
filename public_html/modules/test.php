@@ -12,6 +12,3 @@
  */
 
 if(!isset($_APP)) { die("Unauthorized."); }
-
-$sPaymentRequest = new PaymentRequest(1);
-var_dump($sPaymentRequest->GenerateEmail());
