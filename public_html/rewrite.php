@@ -103,9 +103,18 @@ $router->routes = array(
 			'authenticator' => "authenticators/subscription.php",
 			'auth_error' => "modules/error/nosuchsubscription.php"
 		),
-		"^/campaign/([a-zA-Z0-9-]+)$"				=> "modules/landing.php",
-		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> "modules/subscribe.php",
-		"^/campaign/([a-zA-Z0-9-]+)/donate/([0-9]+)$"		=> "modules/donate.php",
+		"^/campaign/([a-zA-Z0-9-]+)$"				=> array(
+			'target' => "modules/landing.php",
+			'_resizable' => true
+		),
+		"^/campaign/([a-zA-Z0-9-]+)/subscribe$"			=> array(
+			'target' => "modules/subscribe.php",
+			'_resizable' => true
+		),
+		"^/campaign/([a-zA-Z0-9-]+)/donate/([0-9]+)$"		=> array(
+			'target' => "modules/donate.php",
+			'_resizable' => true
+		),
 		"^/thanks/([a-zA-Z0-9-]+)$"				=> "modules/thanks.php",
 		"^/test$"						=> "modules/test.php"
 	)
@@ -123,4 +132,4 @@ catch (RouterException $e)
 }
 
 echo(NewTemplater::Render("layout", $locale->strings, array("contents" => $sPageContents, "title" => $sPageTitle, 
-	"padded" => (isset($router->uVariables['padded']) ? $router->uVariables['padded'] : true))));
+	"padded" => (isset($router->uVariables['padded']) ? $router->uVariables['padded'] : true), "resizable" => !empty($router->uVariables['resizable']))));

@@ -9,7 +9,7 @@
 		<script src="/static/script/script.js"></script>
 	</head>
 	<body>
-		<div class="wrapper">
+		<div class="{%if resizable == false}wrapper{%else}wrapper-resizable{%/if}">
 			<div class="header">
 				<h1>
 					Re<span class="highlight">Donate</span>

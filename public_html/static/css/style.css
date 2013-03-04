@@ -4,7 +4,7 @@
 
 body
 {
-	padding: 0px;
+	padding: 3px;
 	margin: 0px;
 	background-color: #E5EFD7;
 	font-family: Lato, sans-serif;
@@ -13,6 +13,13 @@ body
 .wrapper
 {
 	width: 960px;
+	margin: 0px auto;
+}
+
+.wrapper-resizable
+{
+	max-width: 960px;
+	width: auto;
 	margin: 0px auto;
 }
 
@@ -633,7 +640,8 @@ table.payment-methods td.remove button
 
 .main .more .wrapper
 {
-	width: 730px;
+	width: auto;
+	max-width: 730px;
 	margin: 0px auto;
 }
 
@@ -891,4 +899,21 @@ a.button:hover
 .featured .feature a.go:hover
 {
 	background-color: #4FA22A;
+}
+
+@media all and (max-width: 750px)
+{
+	.subscribe #field_email
+	{
+		width: 240px;
+	}
+}
+
+
+@media all and (max-width: 620px)
+{
+	.subscribe #field_email
+	{
+		width: 190px;
+	}
 }
