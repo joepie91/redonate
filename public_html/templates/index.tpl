@@ -69,10 +69,10 @@
 	<div class="featured">
 		<h3 class="spaced">Who uses ReDonate?</h3>
 		<div class="feature">
-			<a href="http://cvm.cryto.net/">
-				<img src="/static/images/promo/cvm.png">
+			<a href="http://torservers.net/">
+				<img src="/static/images/promo/torservers.png">
 			</a>
-			<a href="/campaign/cvm" class="go">Go to campaign &raquo;</a>
+			<a href="/campaign/torservers" class="go">Go to campaign &raquo;</a>
 		</div>
 		<div class="feature">
 			<a href="http://tahoe-lafs.org/">
