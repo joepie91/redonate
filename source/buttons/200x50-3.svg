@@ -24,8 +24,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="-11.662922"
+     inkscape:zoom="1"
+     inkscape:cx="153.00382"
      inkscape:cy="18.257138"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -62,37 +62,50 @@
        ry="4.1890001" />
     <text
        xml:space="preserve"
-       style="font-size:11.34392071px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="142.77553"
-       y="1039.5051"
+       style="font-size:12.25730419px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#2c3a19;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       x="9.8145285"
+       y="1000.3534"
+       id="text3151"
+       sodipodi:linespacing="125%"
+       transform="scale(0.96204621,1.0394511)"><tspan
+         sodipodi:role="line"
+         id="tspan3153"
+         x="9.8145285"
+         y="1000.3534"
+         style="font-size:12.25730419px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:125%;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#2c3a19;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Roboto;-inkscape-font-specification:Roboto Medium">No automatic charges.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.60034466px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="132.44461"
+       y="1039.7358"
        id="text6526"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan6528"
-         x="142.77553"
-         y="1039.5051"
+         x="132.44461"
+         y="1039.7358"
          style="font-weight:500;font-family:Roboto;-inkscape-font-specification:Roboto Medium"><tspan
            style="font-weight:500;fill:#7aaa3e;fill-opacity:1;-inkscape-font-specification:Roboto Medium"
            id="tspan3761">Re</tspan><tspan
            style="font-weight:500;fill:#587532;fill-opacity:1;-inkscape-font-specification:Roboto Medium"
-           id="tspan3763">Donate</tspan></tspan></text>
+           id="tspan3763">Donate.</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:49.91912842px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2c3a19;fill-opacity:1;stroke:none;font-family:Sans"
-       x="9.5416899"
-       y="981.91278"
+       style="font-size:49.37986374px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2c3a19;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9.7485647"
+       y="985.49353"
        id="text3784"
        sodipodi:linespacing="125%"
-       transform="scale(0.95935583,1.0423661)"><tspan
+       transform="scale(0.96243574,1.0390304)"><tspan
          sodipodi:role="line"
          id="tspan3786"
-         x="9.5416899"
-         y="981.91278"
-         style="font-size:12.4797821px;font-weight:500;fill:#2c3a19;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Medium">Click to make a monthly donation.</tspan><tspan
+         x="9.7485647"
+         y="985.49353"
+         style="font-size:12.34496593px;font-weight:500;fill:#2c3a19;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Medium">Click to make a monthly donation.</tspan><tspan
          sodipodi:role="line"
-         x="9.5416899"
-         y="997.51251"
-         style="font-size:12.4797821px;font-weight:500;fill:#2c3a19;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Medium"
-         id="tspan3826">No automatic charges.</tspan></text>
+         x="9.7485647"
+         y="1000.9247"
+         style="font-size:12.34496593px;font-weight:500;fill:#2c3a19;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Medium"
+         id="tspan3826" /></text>
   </g>
 </svg>

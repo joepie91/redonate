@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="200"
-   height="50"
+   width="40"
+   height="40"
    id="svg5989"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="200x50-1.svg">
+   sodipodi:docname="40x40-1.svg">
   <defs
      id="defs5991" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
+     inkscape:zoom="6.052834"
      inkscape:cx="106.85594"
-     inkscape:cy="34.13246"
+     inkscape:cy="62.729975"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -43,7 +43,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -51,30 +51,26 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-1002.3622)">
+     transform="translate(0,-1012.3622)">
     <rect
-       style="fill:#e5efd7;fill-opacity:1;stroke:#587532;stroke-width:0.722;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       id="rect6016"
-       width="194.28572"
-       height="44.642857"
-       x="2.8571396"
-       y="1005.0408"
-       ry="4.1890001" />
+       style="color:#000000;fill:#e5efd7;fill-opacity:1;fill-rule:nonzero;stroke:#587532;stroke-width:0.708;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3260"
+       width="38.167824"
+       height="38.167824"
+       x="0.9160881"
+       y="1013.2783"
+       ry="2.5176969" />
     <text
        xml:space="preserve"
-       style="font-size:32.99663925px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="28.290178"
-       y="1038.9426"
+       style="font-size:38.11826706px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8.2189503"
+       y="1045.9634"
        id="text6526"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan6528"
-         x="28.290178"
-         y="1038.9426"
-         style="font-weight:500;font-family:Roboto;-inkscape-font-specification:Roboto Medium"><tspan
-           style="font-weight:500;fill:#7aaa3e;fill-opacity:1;-inkscape-font-specification:Roboto Medium"
-           id="tspan3761">Re</tspan><tspan
-           style="font-weight:500;fill:#587532;fill-opacity:1;-inkscape-font-specification:Roboto Medium"
-           id="tspan3763">Donate</tspan></tspan></text>
+         x="8.2189503"
+         y="1045.9634"
+         style="font-weight:500;fill:#7aaa3e;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Medium"
+         id="tspan3254">R</tspan></text>
   </g>
 </svg>

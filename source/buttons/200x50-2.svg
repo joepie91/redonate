@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="93.25482"
-     inkscape:cy="7.6673292"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="121.41332"
+     inkscape:cy="23.559691"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -62,31 +62,32 @@
        ry="4.1890001" />
     <text
        xml:space="preserve"
-       style="font-size:29.96290207px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="7.0909805"
-       y="1031.8389"
+       style="font-size:30.04813957px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="53.25729"
+       y="1030.6949"
        id="text6526"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan6528"
-         x="7.0909805"
-         y="1031.8389"
+         x="53.25729"
+         y="1030.6949"
          style="font-weight:500;font-family:Roboto;-inkscape-font-specification:Roboto Medium"><tspan
            style="font-weight:500;fill:#7aaa3e;fill-opacity:1;-inkscape-font-specification:Roboto Medium"
            id="tspan3761">Re</tspan><tspan
            style="font-weight:500;fill:#587532;fill-opacity:1;-inkscape-font-specification:Roboto Medium"
-           id="tspan3763">Donate</tspan></tspan></text>
+           id="tspan3763">Donate.</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:43.02864075px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2c3a19;fill-opacity:1;stroke:none;font-family:Sans"
-       x="8.4048223"
-       y="1043.868"
+       style="font-size:46.81110382px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2c3a19;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8.711504"
+       y="1039.72"
        id="text3784"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       transform="scale(0.99578455,1.0042333)"><tspan
          sodipodi:role="line"
          id="tspan3786"
-         x="8.4048223"
-         y="1043.868"
-         style="font-size:10.75716019px;font-weight:500;fill:#2c3a19;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Medium">Recurring contributions done right.</tspan></text>
+         x="8.711504"
+         y="1039.72"
+         style="font-size:11.70277596px;font-weight:500;fill:#2c3a19;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Medium">Recurring contributions done right.</tspan></text>
   </g>
 </svg>
