@@ -67,7 +67,7 @@ if(!empty($_POST['submit']))
 		switch($sPaymentMethod->sType)
 		{
 			case PaymentMethod::PAYPAL:
-				if($sPaymentRequest->sCurrency == "btc")
+				if(strtolower($_POST['currency']) == "btc")
 				{
 					$sCurrency = urlencode("USD");
 					$sAmount = round(Currency::Convert("usd", "btc", $_POST['amount']), 2);

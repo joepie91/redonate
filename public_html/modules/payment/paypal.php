@@ -22,7 +22,7 @@ catch (NotFoundException $e)
 	throw new RouterException("No such payment method found.");
 }
 
-if($sPaymentRequest->sCurrency == "btc")
+if(strtolower($sPaymentRequest->sCurrency) == "btc")
 {
 	$sCurrency = urlencode("USD");
 	$sAmount = round(Currency::Convert("usd", "btc", $sPaymentRequest->sAmount), 2);
