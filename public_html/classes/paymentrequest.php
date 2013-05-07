@@ -62,7 +62,7 @@ class PaymentRequest extends CPHPDatabaseRecordClass
 			"campaign-name" => $this->sCampaign->sName,
 			"amount" => Currency::Format($this->sCurrency, $this->sAmount),
 			"skip-url" => "http://redonate.net/pay/{$this->sSubscription->sEmailAddress}/{$this->sId}/{$this->sKey}/skip",
-			"unsubscribe-url" => "http://redonate.com/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
+			"unsubscribe-url" => "http://redonate.net/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
 			"methods" => $sMethods
 		));
 		
@@ -71,7 +71,7 @@ class PaymentRequest extends CPHPDatabaseRecordClass
 				"campaign-name" => $this->sCampaign->sName,
 				"amount" => Currency::Format($this->sCurrency, $this->sAmount),
 				"skip-url" => "http://redonate.net/pay/{$this->sSubscription->sEmailAddress}/{$this->sId}/{$this->sKey}/skip",
-				"unsubscribe-url" => "http://redonate.com/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
+				"unsubscribe-url" => "http://redonate.net/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
 				"methods" => $sMethods
 			))
 		));
