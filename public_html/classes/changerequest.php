@@ -52,7 +52,7 @@ class ChangeRequest extends CPHPDatabaseRecordClass
 		$sText = NewTemplater::Render("email/change.txt", $locale->strings, array(
 			"campaign-name" => $this->sCampaign->sName,
 			"confirmation-url" => "http://redonate.net/change/{$this->sSubscription->sEmailAddress}/{$this->sId}/{$this->sKey}",
-			"unsubscribe-url" => "http://redonate.com/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
+			"unsubscribe-url" => "http://redonate.net/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
 			"old" => Currency::Format($this->sOldCurrency, $this->sOldAmount),
 			"new" => Currency::Format($this->sNewCurrency, $this->sNewAmount)
 		));
@@ -61,7 +61,7 @@ class ChangeRequest extends CPHPDatabaseRecordClass
 			"contents" => NewTemplater::Render("email/change.html", $locale->strings, array(
 				"campaign-name" => $this->sCampaign->sName,
 				"confirmation-url" => "http://redonate.net/change/{$this->sSubscription->sEmailAddress}/{$this->sId}/{$this->sKey}",
-				"unsubscribe-url" => "http://redonate.com/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
+				"unsubscribe-url" => "http://redonate.net/manage/{$this->sSubscription->sEmailAddress}/{$this->sSubscription->sSettingsKey}",
 				"old" => Currency::Format($this->sOldCurrency, $this->sOldAmount),
 				"new" => Currency::Format($this->sNewCurrency, $this->sNewAmount)
 			))
