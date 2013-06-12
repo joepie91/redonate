@@ -59,4 +59,7 @@ $sPageContents = NewTemplater::Render("landing", $locale->strings, array(
 	"project-name" => $sCampaign->sName, 
 	"urlname" => $sCampaign->sUrlName,
 	"methods" => $sPaymentMethods
+), array(
+	"currency" => $sCampaign->sDefaultCurrency,
+	"amount" => $sCampaign->sDefaultAmount
 ));
