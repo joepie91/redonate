@@ -22,7 +22,8 @@ class Campaign extends CPHPDatabaseRecordClass
 	public $prototype = array(
 		'string' => array(
 			'Name'				=> "Name",
-			'UrlName'			=> "UrlName"
+			'UrlName'			=> "UrlName",
+			'DefaultCurrency'		=> "DefaultCurrency"
 		),
 		'numeric' => array(
 			'OwnerId'			=> "OwnerId",
@@ -35,7 +36,8 @@ class Campaign extends CPHPDatabaseRecordClass
 			'PastMonthAmount'		=> "PastMonthAmount",
 			'PastMonthNonAmount'		=> "PastMonthNonAmount",
 			'PastMonthSubscriptions'	=> "PastMonthSubscriptions",
-			'PastMonthUnsubscriptions'	=> "PastMonthUnsubscriptions"
+			'PastMonthUnsubscriptions'	=> "PastMonthUnsubscriptions",
+			'DefaultAmount'			=> "DefaultAmount"
 		),
 		'boolean' => array(
 			'AllowOneTime'			=> "AllowOneTime",

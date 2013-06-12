@@ -8,6 +8,18 @@
 	{%/foreach}
 {%/if}
 
+{%if isempty|errors == false}
+	<div class="errors">
+		One or more problems occurred:
+		<ul>
+			{%foreach error in errors}
+				<li>{%?error}</li>
+			{%/foreach}
+		</ul>
+		Please correct these issues and submit the form again.
+	</div>
+{%/if}
+
 <div class="dashboard-section">
 	<h3 class="spaced">Your public campaign page URL</h3>
 	<input class="permalink" type="text" value="http://redonate.net/campaign/{%?urlname}">
@@ -84,4 +96,31 @@
 	{%else}
 		<p>No payment methods have been added yet.</p>
 	{%/if}
+</div>
+
+<div class="dashboard-section">
+	<h3>Settings</h3>
+	
+	<form method="post" action="/dashboard/{%?urlname}/change-settings">
+		<div class="formfield">
+			<label>Default currency</label>
+			{%select name="default_currency"}
+				{%option value="usd" text="$ (United States Dollar)"}
+				{%option value="eur" text="€ (Euro)"}
+				{%option value="btc" text="BTC (Bitcoin)"}
+			{%/select}
+			<div class="clear"></div>
+		</div>
+		
+		<div class="formfield">
+			<label>Default amount</label>
+			{%input name="default_amount"}
+			<div class="clear"></div>
+		</div>
+		
+		<div class="formfield">
+			<label></label>
+			<button type="submit" class="small">Save settings</button>
+		</div>
+	</form>
 </div>

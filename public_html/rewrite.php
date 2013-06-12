@@ -58,6 +58,11 @@ $router->routes = array(
 			'authenticator' => "authenticators/user.php",
 			'auth_error' => "modules/error/guest.php"
 		),
+		"^/dashboard/([a-zA-Z0-9-]+)/change-settings$"		=> array(
+			'target' => "modules/campaign/changesettings.php",
+			'authenticator' => "authenticators/user.php",
+			'auth_error' => "modules/error/guest.php"
+		),
 		"^/pay/(.+)/([0-9]+)/([a-zA-Z0-9]+)/(.+)/done$"		=> array(
 			'target' => "modules/payment/notify_done.php",
 			'authenticator' => "authenticators/payment.php",
