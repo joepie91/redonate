@@ -15,7 +15,7 @@ if(!isset($_APP)) { die("Unauthorized."); }
 
 try
 {
-	$sCampaign = Campaign::CreateFromQuery("SELECT * FROM campaigns WHERE `UrlName` = :UrlName", array(":UrlName" => $router->uParameters[1]), 30, true);
+	$sCampaign = Campaign::CreateFromQuery("SELECT * FROM campaigns WHERE `UrlName` = :UrlName", array(":UrlName" => $router->uParameters[1]), 5, true);
 
 }
 catch (NotFoundException $e)
