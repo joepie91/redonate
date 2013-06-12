@@ -55,7 +55,7 @@
 				{%option value="eur" text="€"}
 				{%option value="btc" text="BTC"}
 			{%/select}
-			{%input type="text" name="amount" id="field_amount" value="5.00"}
+			{%input type="text" name="amount" id="field_amount"}
 			a month.
 		</p>
 		<p class="pledge-button">
