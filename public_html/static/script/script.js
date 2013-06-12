@@ -54,7 +54,10 @@ $(function(){
 		}
 	});
 	
-	$('button[type=submit]').mousedown(function(){
-		$(this).closest('form').submit();
+	$('button[type=submit]').mousedown(function(event){
+		if(event.which == 1)
+		{
+			$(this).closest('form').submit();
+		}
 	});
 });

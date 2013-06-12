@@ -82,5 +82,8 @@ $sPageContents = NewTemplater::Render("campaign/dashboard", $locale->strings, ar
 	"nondonations-amount"		=> $sCampaign->sPastMonthNonDonations,
 	"nondonations-percentage"	=> $sNonDonationPercentage,
 	"statistics-available"		=> $sStatisticsAvailable
+), array(
+	"default_currency"		=> $sCampaign->sDefaultCurrency,
+	"default_amount"		=> $sCampaign->sDefaultAmount
 ));
 
